@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 16:41:46 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/01 17:19:59 by slamhaou         ###   ########.fr       */
+/*   Created: 2025/12/03 09:46:18 by slamhaou          #+#    #+#             */
+/*   Updated: 2025/12/03 11:32:53 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "../Zombie.hpp"
 
-int main()
+Zombie::Zombie(std::string Name): name(Name){}
+Zombie::Zombie(){}
+Zombie::~Zombie()
 {
-	Zombie *p;
-	
-	p = newZombie("hallo");
-	if (!p)
-		return (std::cout<< "error allocation"<< std::endl, 1);
-	p->announce();
-	randomChump("soso");
-	delete(p);
+	std::cout<< name << " :This Zombie Ddestroyed"<< std::endl;
+}
+void Zombie::announce( void )
+{
+	std::cout<< name << " :" << "BraiiiiiiinnnzzzZ..." << std::endl;
+}
+void	Zombie::SetName(std::string Name)
+{
+	name = Name;
 }

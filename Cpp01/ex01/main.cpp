@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 16:41:46 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/01 17:19:59 by slamhaou         ###   ########.fr       */
+/*   Created: 2025/12/02 18:11:31 by slamhaou          #+#    #+#             */
+/*   Updated: 2025/12/03 11:39:24 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,16 @@
 
 int main()
 {
-	Zombie *p;
-	
-	p = newZombie("hallo");
-	if (!p)
-		return (std::cout<< "error allocation"<< std::endl, 1);
-	p->announce();
-	randomChump("soso");
-	delete(p);
+	size_t	i;
+	Zombie *Arr;
+	std::string a;
+
+	i = 0;
+	a = "safia";
+	Arr = zombieHorde(4,a);
+	if (!Arr)
+		return (1);
+	while (i < 3)
+		Arr[i++].announce();
+	delete[]Arr;
 }

@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angel <angel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/03 14:59:41 by angel             #+#    #+#             */
-/*   Updated: 2025/12/03 17:52:55 by angel            ###   ########.fr       */
+/*   Created: 2025/12/03 18:24:58 by angel             #+#    #+#             */
+/*   Updated: 2025/12/03 20:34:16 by angel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
-int main()
+#include <iostream>
+class Weapon
 {
-    std::string String = "HI THIS IS BRAIN";
-    std::string *stringPTR = &String;
-    std::string &stringREF = String;
+    private:
+        std::string type;
+    public:
+        void setType(std::string str);
+        std::string getType();
     
-    std::cout<< &String   <<std::endl;
-    std::cout<< stringPTR <<std::endl;
-    std::cout<< &stringREF<<std::endl;
-    std::cout<< String     <<std::endl;
-    std::cout<< *stringPTR <<std::endl;
-    std::cout<< stringREF  <<std::endl;
-}
+};
+#endif

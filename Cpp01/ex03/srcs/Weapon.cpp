@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angel <angel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/03 14:59:41 by angel             #+#    #+#             */
-/*   Updated: 2025/12/03 17:52:55 by angel            ###   ########.fr       */
+/*   Created: 2025/12/03 20:30:05 by angel             #+#    #+#             */
+/*   Updated: 2025/12/03 20:33:59 by angel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "../include/Weapon.hpp"
 
-int main()
+void    Weapon::setType(std::string str)
 {
-    std::string String = "HI THIS IS BRAIN";
-    std::string *stringPTR = &String;
-    std::string &stringREF = String;
-    
-    std::cout<< &String   <<std::endl;
-    std::cout<< stringPTR <<std::endl;
-    std::cout<< &stringREF<<std::endl;
-    std::cout<< String     <<std::endl;
-    std::cout<< *stringPTR <<std::endl;
-    std::cout<< stringREF  <<std::endl;
+    type = str;    
 }

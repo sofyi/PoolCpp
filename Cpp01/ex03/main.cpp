@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angel <angel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 18:14:48 by angel             #+#    #+#             */
-/*   Updated: 2025/12/05 10:39:07 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/12/05 12:49:09 by angel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/Weapon.hpp"
+#include "./include/HumanA.hpp"
+#include "./include/HumanB.hpp"
+
 int main()
 {
-    Weapon obj;
-    
     {
         Weapon club = Weapon("crude spiked club");
         HumanA bob("Bob", club);

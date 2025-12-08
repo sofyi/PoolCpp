@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angel <angel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 15:33:29 by angel             #+#    #+#             */
-/*   Updated: 2025/12/08 16:22:00 by angel            ###   ########.fr       */
+/*   Updated: 2025/12/08 18:09:21 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MiniSad.hpp"
+#include "MiniSed.hpp"
 
 int main(int ac, char **av)
 {

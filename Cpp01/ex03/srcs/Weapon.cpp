@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 20:30:05 by angel             #+#    #+#             */
-/*   Updated: 2025/12/05 10:53:52 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/12/08 17:27:45 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,4 @@ const std::string& Weapon::getType(void)
 {
     return  type;
 }
+Weapon::~Weapon(){}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angel <angel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 11:37:07 by angel             #+#    #+#             */
-/*   Updated: 2025/12/08 11:32:05 by angel            ###   ########.fr       */
+/*   Updated: 2025/12/08 18:06:51 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class   Harl
         void    info(void);
         void    warning(void);
         void    error(void);
-       const  char    *StringTabel[4];
+       std::string StringTabel[4];
         void (Harl::*point[4])();
     public:
       Harl();

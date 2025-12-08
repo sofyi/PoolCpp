@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 18:24:58 by angel             #+#    #+#             */
-/*   Updated: 2025/12/05 10:54:07 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/12/08 18:31:03 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ class Weapon
     private:
         std::string type;
     public:
-    Weapon(std::string str);
+        Weapon(std::string str);
         void setType(std::string str);
         const std::string& getType();
-    ~Weapon(){};
+        ~Weapon();
 };
 #endif

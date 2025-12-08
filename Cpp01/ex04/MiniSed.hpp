@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MiniSad.hpp                                        :+:      :+:    :+:   */
+/*   MiniSed.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angel <angel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 17:34:44 by angel             #+#    #+#             */
-/*   Updated: 2025/12/06 11:03:26 by angel            ###   ########.fr       */
+/*   Updated: 2025/12/08 18:10:03 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISAD_HPP
-#define MINISAD_HPP
+#ifndef MINISED_HPP
+#define MINISED_HPP
 
 #include <iostream>
 #include <fstream>

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angel <angel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 18:11:31 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/07 18:02:12 by angel            ###   ########.fr       */
+/*   Updated: 2025/12/08 17:10:05 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main()
 	Arr = zombieHorde(4,"GroupsZopiee");
 	if (!Arr)
 		return (1);
-	while (i < 3)
+	while (i <= 3)
 		Arr[i++].announce();
-	delete[]Arr;
+	delete[] Arr;
 }

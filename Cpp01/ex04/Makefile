@@ -1,5 +1,5 @@
 NAME = Minisad
-SRC = main.cpp Minisad.cpp 
+SRC = main.cpp Minised.cpp 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

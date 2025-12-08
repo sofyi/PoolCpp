@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Minisad.cpp                                        :+:      :+:    :+:   */
+/*   Minised.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angel <angel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 17:45:03 by angel             #+#    #+#             */
-/*   Updated: 2025/12/08 16:12:10 by angel            ###   ########.fr       */
+/*   Updated: 2025/12/08 18:09:53 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MiniSad.hpp"
+#include "MiniSed.hpp"
 
 MiniSed::MiniSed(std::string FileName, std::string s1, std::string substitute)
 {

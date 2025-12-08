@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angel <angel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 18:11:31 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/03 11:39:24 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/12/07 18:02:12 by angel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@ int main()
 {
 	size_t	i;
 	Zombie *Arr;
-	std::string a;
-
+	
 	i = 0;
-	a = "safia";
-	Arr = zombieHorde(4,a);
+	Arr = zombieHorde(4,"GroupsZopiee");
 	if (!Arr)
 		return (1);
 	while (i < 3)

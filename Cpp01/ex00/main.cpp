@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angel <angel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 16:41:46 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/01 17:19:59 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/12/07 17:37:41 by angel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 int main()
 {
 	Zombie *p;
-	
-	p = newZombie("hallo");
+
+	p = newZombie("InHeap");
 	if (!p)
 		return (std::cout<< "error allocation"<< std::endl, 1);
 	p->announce();
-	randomChump("soso");
+	randomChump("InStack");
 	delete(p);
 }

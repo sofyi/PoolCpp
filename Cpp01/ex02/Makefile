@@ -9,9 +9,9 @@ $(NAME): $(OBJ)
 %.o : %.cpp
 	c++ -c -Wall -Wextra -Werror $< -o $@
 clean:
-	rm f $(OBJ)
+	rm -f $(OBJ)
 fclean: clean
-	rm f $(NAME)
+	rm -f $(NAME)
 s: all clean
 re: fclean all
 .PHONY:all clean fclean s re

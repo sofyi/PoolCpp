@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Minisad.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angel <angel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 17:45:03 by angel             #+#    #+#             */
-/*   Updated: 2025/12/08 15:25:09 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/12/08 16:12:10 by angel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ bool   MiniSed::MyMiniSed(void)
     std::string Str;
     std::string buff;
     
+    if (Original.empty())
+        return (std::cout<< "-->Error: s1 cannot be empty-->"<<std::endl, false);
     std::ifstream StreamReding(NameFile);
     if (!StreamReding.is_open())
-        return ( std::cout<< "Bad Open File ~~" << std::endl, false);
+        return (std::cout<< "Error: cannot open input file" << std::endl, false);
     std::ofstream OutFile(NameFile + ".replace");
     while (true)
     {

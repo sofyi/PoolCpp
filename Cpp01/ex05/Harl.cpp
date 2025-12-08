@@ -6,7 +6,7 @@
 /*   By: angel <angel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 11:37:04 by angel             #+#    #+#             */
-/*   Updated: 2025/12/07 16:38:00 by angel            ###   ########.fr       */
+/*   Updated: 2025/12/08 11:47:06 by angel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 Harl::Harl(void)
 {
-    StringTabel[0] = "DEBEG";
+    StringTabel[0] = "DEBUG";
     StringTabel[1] = "INFO";
     StringTabel[2] = "WARNING";
     StringTabel[3] = "ERROR";
-    point[0] = &Harl::debeg;
+    point[0] = &Harl::debug;
     point[1] = &Harl::info;
     point[2] = &Harl:: warning;
     point[3] = &Harl:: error;
@@ -28,7 +28,7 @@ void    Harl::info(void)
    std::cout << "I cannot believe adding extra bacon costs more money. You didn’t put nough bacon in my burger! If you did, I wouldn’t be asking for more!";
    std::cout<< std::endl;
 }
-void    Harl::debeg(void)
+void    Harl::debug(void)
 {
     std::cout<< "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!";
     std::cout<< std::endl;
@@ -57,7 +57,7 @@ void    Harl::compain(std::string level)
         }
         Index++;
     }
-    std::cout<< "Use One Option -> {DEBEG, INFO, ERROR, WARNING}";
+    std::cout<< "Use One Option -> {DEBUG, INFO, ERROR, WARNING}";
     std::cout<<std::endl;
 }
 Harl::~Harl(){}

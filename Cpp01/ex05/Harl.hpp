@@ -6,7 +6,7 @@
 /*   By: angel <angel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 11:37:07 by angel             #+#    #+#             */
-/*   Updated: 2025/12/07 15:12:07 by angel            ###   ########.fr       */
+/*   Updated: 2025/12/08 11:32:05 by angel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class   Harl
 {
     private:
-        void    debeg(void);
+        void    debug(void);
         void    info(void);
         void    warning(void);
         void    error(void);

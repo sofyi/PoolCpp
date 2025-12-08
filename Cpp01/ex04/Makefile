@@ -9,8 +9,9 @@ $(NAME): $(OBJ)
 %.o:%.cpp Minisad.hpp
 	c++ -c -Wall -Wextra -Werror $< -o $@
 clean:
-	rm -rf $(OBJ)
+	rm -f $(OBJ)
 fclean : clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 re : fclean all
 s : all clean
+.PHONY:all clean fclean s re

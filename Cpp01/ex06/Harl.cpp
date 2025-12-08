@@ -6,7 +6,7 @@
 /*   By: angel <angel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 11:37:04 by angel             #+#    #+#             */
-/*   Updated: 2025/12/08 10:24:53 by angel            ###   ########.fr       */
+/*   Updated: 2025/12/08 11:44:34 by angel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ Harl::Harl(void)
     StringTabel[1] = "INFO";
     StringTabel[2] = "WARNING";
     StringTabel[3] = "ERROR";
+    point[0] = &Harl::debug;
+    point[1] = &Harl::info;
+    point[2] = &Harl:: warning;
+    point[3] = &Harl:: error;
 }
 void    Harl::info(void)
 {
@@ -58,16 +62,16 @@ void    Harl::compain(std::string level)
     {
         
         case 0:
-            debug();
+            (this->*point[0])();
              //fallthrough  
         case 1:
-            info();
+            (this->*point[1])();
             //fallthrough  
         case 2:
-            warning();
+            (this->*point[2])();
             //fallthrough
         case 3:
-            error();
+        (this->*point[3])();
             break;
         default:
             std::cout<< "[ Probably complaining about insignificant problems ]";

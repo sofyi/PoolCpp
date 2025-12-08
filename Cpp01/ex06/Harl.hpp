@@ -6,7 +6,7 @@
 /*   By: angel <angel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 11:37:07 by angel             #+#    #+#             */
-/*   Updated: 2025/12/08 10:24:44 by angel            ###   ########.fr       */
+/*   Updated: 2025/12/08 11:26:58 by angel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class   Harl
         void    warning(void);
         void    error(void);
         const  char    *StringTabel[4];
+        void (Harl::*point[4])();
     public:
       Harl();
         void    compain(std::string level);

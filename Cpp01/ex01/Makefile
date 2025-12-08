@@ -15,3 +15,4 @@ fclean: clean
 	rm -rf $(NAME)
 s: all clean
 re: fclean all
+.PHONY:all clean fclean s re

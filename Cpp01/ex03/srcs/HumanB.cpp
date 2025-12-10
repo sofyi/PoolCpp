@@ -24,6 +24,9 @@ void	HumanB::setWeapon(Weapon &Club)
 }
 void HumanB::attack()
 {
-    std::cout<< name << " attacks with their " << PointWp->getType()<< std::endl;
+    if (!PointWp)
+        std::cout<< name << " pointWpen = NUll "<< std::endl;
+    else
+      std::cout<< name << " attacks with their " << PointWp->getType()<< std::endl;
 }
 HumanB::~HumanB(){}

@@ -6,10 +6,9 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 18:26:01 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/10 13:35:09 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/12/10 13:43:41 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../include/HumanB.hpp"
 
@@ -25,7 +24,8 @@ void	HumanB::setWeapon(Weapon &Club)
 void HumanB::attack()
 {
     if (!PointWp)
-        std::cout<< name << "❌ Nowpen ❌ "<< std::endl;
-    std::cout<< name << " attacks with their " << PointWp->getType()<< std::endl;
+        std::cout<< name << " attacks with their " << std::endl;
+    else
+      std::cout<< name << " attacks with their " << PointWp->getType()<< std::endl;
 }
 HumanB::~HumanB(){}

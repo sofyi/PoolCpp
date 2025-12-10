@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/06 11:37:12 by angel             #+#    #+#             */
-/*   Updated: 2025/12/08 18:07:34 by slamhaou         ###   ########.fr       */
+/*   Created: 2025/12/08 18:43:28 by slamhaou          #+#    #+#             */
+/*   Updated: 2025/12/08 18:43:32 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main()
 {
     Harl client;
-    
+
     client.compain("HALLO");   
     client.compain("DEBUG");
     client.compain("INFO");

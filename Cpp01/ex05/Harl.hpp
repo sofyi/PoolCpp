@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/06 11:37:07 by angel             #+#    #+#             */
-/*   Updated: 2025/12/08 18:06:51 by slamhaou         ###   ########.fr       */
+/*   Created: 2025/12/08 18:43:42 by slamhaou          #+#    #+#             */
+/*   Updated: 2025/12/08 18:43:50 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define HARL_HPP
 
 #include <iostream>
-
 class   Harl
 {
     private:
@@ -26,7 +25,7 @@ class   Harl
         void (Harl::*point[4])();
     public:
       Harl();
-        void    compain(std::string level);
+      void    compain(std::string level);
       ~Harl();
 };
 

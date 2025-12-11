@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 18:26:01 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/10 13:43:41 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:16:10 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,15 @@ void	HumanB::setWeapon(Weapon &Club)
 }
 void HumanB::attack()
 {
+    std::string replasName;
+
+    replasName = name;
+    if (replasName.empty())
+        replasName = "Anonymos";
     if (!PointWp)
-        std::cout<< name << " attacks with their " << std::endl;
+        std::cout<< replasName << " ❌ no weapon ❌";
     else
-      std::cout<< name << " attacks with their " << PointWp->getType()<< std::endl;
+      std::cout<< replasName << " attacks with their " << PointWp->getType();
+    std::cout<< std::endl;
 }
 HumanB::~HumanB(){}

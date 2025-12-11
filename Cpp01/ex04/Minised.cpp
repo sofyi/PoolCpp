@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 18:45:06 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/08 18:45:10 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:35:03 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,10 @@ bool   MiniSed::MyMiniSed(void)
             Index += Original.length();
             Str = Str.substr(Index);
         }
-             OutFile << buff + Str;
-             if (!StreamReding.eof())
-                    OutFile << std::endl;   
+        OutFile << buff + Str;
+        if (!StreamReding.eof())
+            OutFile << std::endl;
     }
-    StreamReding.close();
-    OutFile.close();
     return (true);
 }
 MiniSed::~MiniSed(){}

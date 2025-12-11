@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 18:27:52 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/08 18:27:55 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/12/11 15:19:51 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Zombie::Zombie(){}
 Zombie::~Zombie()
 {
-	std::cout<< name << " :This Zombie Ddestroyed"<< std::endl;
+	std::cout<< name << " :This Zombie Destroyed"<< std::endl;
 }
 void Zombie::announce( void )
 {

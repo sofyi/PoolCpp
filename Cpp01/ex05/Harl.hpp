@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 18:43:42 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/08 18:43:50 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:40:38 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ class   Harl
         void    info(void);
         void    warning(void);
         void    error(void);
-       std::string StringTabel[4];
+        std::string StringTabel[4];
         void (Harl::*point[4])();
     public:
-      Harl();
-      void    compain(std::string level);
-      ~Harl();
+        Harl();
+        void    complain(std::string level);
+        ~Harl();
 };
 
 #endif

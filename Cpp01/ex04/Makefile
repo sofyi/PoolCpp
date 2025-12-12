@@ -1,12 +1,12 @@
-NAME = Minisad
-SRC = main.cpp Minised.cpp 
+NAME = MiniSed
+SRC = main.cpp MiniSed.cpp 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	c++ $(OBJ) -o $@
-%.o:%.cpp Minisad.hpp
+%.o:%.cpp MiniSed.hpp
 	c++ -c -Wall -Wextra -Werror $< -o $@
 clean:
 	rm -f $(OBJ)

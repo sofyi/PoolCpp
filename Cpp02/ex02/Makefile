@@ -1,0 +1,18 @@
+NAME = OperatorOverload
+SRC = main.cpp Fixed.cpp
+OBJ = $(SRC:.cpp=.o)
+
+all : $(NAME)
+
+$(NAME) : $(OBJ)
+	c++ $(OBJ) -o $@
+
+%.o:%.cpp Fixed.hpp
+	c++ -c -Wall -Wextra -Werror $< -o $@
+
+clean:
+	rm -f $(OBJ)
+fclean : clean
+	rm -f $(NAME)
+re: fclean all
+s: all clean

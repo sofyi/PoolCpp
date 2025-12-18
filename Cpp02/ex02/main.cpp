@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/12 17:27:16 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/13 14:19:24 by slamhaou         ###   ########.fr       */
+/*   Created: 2025/12/12 17:27:30 by slamhaou          #+#    #+#             */
+/*   Updated: 2025/12/18 18:22:46 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#include "Fixed.hpp"
 
-#include <iostream>
-
-class Fixd 
+int main( void ) 
 {
-	private:
-		std::string name;
-		
-	public:
-		Fixd(){
-			name = "SAFIA";
-			p = NULL;
-			std::cout<<"HHHalooo\n";
-		};
-		Fixd(Fixd &obj)
-		{
-			// name = obj.name;
-			std::cout << "iam coopuing \n" << std::endl;
-		}
-		std::string get();
-		~Fixd(){
-			std::cout << "noon"<<std::endl;
-		};
-		std::string *p;
-};
+	Fixed a;
 
-#endif
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	
+	// std::cout << a << std::endl;
+	// std::cout << ++a << std::endl;
+	// std::cout << a << std::endl;
+	// std::cout << a++ << std::endl;
+	// std::cout << a << std::endl;
+	 std::cout << b << std::endl;
+	
+	// std::cout << Fixed::max( a, b ) << std::endl;
+	return 0;
+}

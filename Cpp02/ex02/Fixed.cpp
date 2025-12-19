@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 19:59:16 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/19 10:32:28 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/12/19 11:21:10 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ std::ostream& operator<<(std::ostream &out, const Fixed &obj)
 Fixed Fixed::operator*(const Fixed &RigthObj)
 {
 	Fixed TmpObj;
-
+	
 	// float a = (((float)this->RawBits / 256) * ((float)RigthObj.RawBits / 256));
 	// std::cout << "this out :" << a << std::endl;
 	TmpObj = Fixed(this->toFloat() * RigthObj.toFloat());

@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 17:27:16 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/18 18:18:07 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/12/19 10:18:26 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ class Fixed
 		void	setRawBits( int const raw );
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
-		friend std::ostream& operator<<(std::ostream &out, const Fixed &obj);
 };
 
 std::ostream& operator<<(std::ostream &out, const Fixed &obj);//han al chining lama nraje3 this

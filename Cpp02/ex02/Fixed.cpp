@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 19:59:16 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/18 18:45:46 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/12/19 10:32:28 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,54 +15,49 @@
 const int	Fixed::FixedPoint = 8;
 //🔺_____________________________OthodoxCanonicalForm_____________________🔺
 
-Fixed::Fixed(): RawBits(0)
-{
-	//std::cout<<"Default constructor called "<< std::endl;
-}
+Fixed::Fixed(): RawBits(0){}
 
 Fixed::Fixed(int Num)
 {
-	//std::cout << "Int constructor called" << std::endl; 
 	RawBits = Num * (1 << FixedPoint);
 }
 
 Fixed::Fixed(float Num)
 {
-	//std::cout << "Float constructor called" << std::endl; 
 	RawBits = round(Num * (1 << FixedPoint));
 }
 
 Fixed::Fixed(const Fixed &Original)
 {
-	//std::cout<<"Copy constructor called" << std::endl;
+	std::cout<<"Copy constructor called" << std::endl;
 	this->RawBits = Original.getRawBits();//tnakeshe fde tany bta3t tnady 3la operator
 }
 
-Fixed::~Fixed(){
-	//std::cout<< "Destructor called" << std::endl;
-}
+Fixed::~Fixed(){}
 
 //🔷___________________________OperatorOverLoad____________________________🔷
 
 Fixed& Fixed::operator=(const Fixed &RigthObj)
 {
-//	std::cout<<"Copy assignment operator called"<< std::endl;
 	if (&RigthObj != this)
 		this->RawBits = RigthObj.getRawBits();
 	return *this;
+}
+
+std::ostream& operator<<(std::ostream &out, const Fixed &obj)
+{
+	out << obj.toFloat();
+	return (out);
 }
 
 Fixed Fixed::operator*(const Fixed &RigthObj)
 {
 	Fixed TmpObj;
 
-	TmpObj = Fixed(this->toFloat() * RigthObj.toFloat()) ;
+	// float a = (((float)this->RawBits / 256) * ((float)RigthObj.RawBits / 256));
+	// std::cout << "this out :" << a << std::endl;
+	TmpObj = Fixed(this->toFloat() * RigthObj.toFloat());
 	return (TmpObj);
-}
-std::ostream& operator<<(std::ostream &out, const Fixed &obj)
-{
-	out << (float)obj.RawBits / (1 << obj.FixedPoint);
-	return (out);
 }
 
 //🔻____________________________Function_____________________________________🔻

@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 19:59:16 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/18 15:41:00 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/12/19 10:31:26 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ Fixed& Fixed::operator=(const Fixed &RigthObj)
 
 std::ostream& operator<<(std::ostream &out, const Fixed &obj)
 {
-	out << (float)obj.RawBits / (1 << obj.FixedPoint);
+	out << obj.toFloat();
 	return (out);
 }
 

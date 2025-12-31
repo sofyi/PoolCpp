@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 19:59:16 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/19 11:21:10 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/12/31 18:50:58 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@ Fixed::Fixed(float Num)
 
 Fixed::Fixed(const Fixed &Original)
 {
-	std::cout<<"Copy constructor called" << std::endl;
-	this->RawBits = Original.getRawBits();//tnakeshe fde tany bta3t tnady 3la operator
+	//std::cout<< "coco" << std::endl;
+	this->RawBits = Original.getRawBits();
 }
 
 Fixed::~Fixed(){}
 
 //🔷___________________________OperatorOverLoad____________________________🔷
 
-Fixed& Fixed::operator=(const Fixed &RigthObj)
+Fixed Fixed::operator=(const Fixed &RigthObj)
 {
 	if (&RigthObj != this)
 		this->RawBits = RigthObj.getRawBits();
@@ -50,7 +50,65 @@ std::ostream& operator<<(std::ostream &out, const Fixed &obj)
 	return (out);
 }
 
-Fixed Fixed::operator*(const Fixed &RigthObj)
+bool	Fixed::operator<(const Fixed &RigthObj)const
+{
+	if (toFloat() < RigthObj.toFloat())
+		return true;
+	return false;
+}
+
+bool	Fixed::operator>(const Fixed &RigthObj)const
+{
+	if (toFloat() > RigthObj.toFloat())
+		return true;
+	return false;
+}
+
+bool	Fixed::operator<=(const Fixed &RigthObj)const
+{
+	if (toFloat() <= RigthObj.toFloat())
+		return true;
+	return false;
+}
+
+bool	Fixed::operator>=(const Fixed &RigthObj)const
+{
+	if (toFloat() >= RigthObj.toFloat())
+		return true;
+	return false;
+}
+
+bool	Fixed::operator==(const Fixed &RigthObj)const
+{
+	if (toFloat() == RigthObj.toFloat())
+		return true;
+	return false;
+}
+
+bool	Fixed::operator!=(const Fixed &RigthObj)const
+{
+	if (toFloat() != RigthObj.toFloat())
+		return true;
+	return false;
+}
+
+Fixed Fixed::operator+(const Fixed &RigthObj)const
+{
+	Fixed TmpObj;
+	
+	TmpObj = Fixed(this->toFloat() + RigthObj.toFloat());
+	return TmpObj;
+}
+
+Fixed Fixed::operator-(const Fixed &RigthObj)const
+{
+	Fixed TmpObj;
+	
+	TmpObj = Fixed(this->toFloat() - RigthObj.toFloat());
+	return TmpObj;
+}
+
+Fixed Fixed::operator*(const Fixed &RigthObj)const
 {
 	Fixed TmpObj;
 	
@@ -58,6 +116,29 @@ Fixed Fixed::operator*(const Fixed &RigthObj)
 	// std::cout << "this out :" << a << std::endl;
 	TmpObj = Fixed(this->toFloat() * RigthObj.toFloat());
 	return (TmpObj);
+}
+
+Fixed Fixed::operator/(const Fixed &RigthObj)const
+{
+	Fixed TmpObj;
+	
+	TmpObj = Fixed(this->toFloat() / RigthObj.toFloat());
+	return (TmpObj);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed tmp(*this);
+
+	RawBits++;
+	return tmp;
+}
+
+Fixed&	Fixed::operator++()
+{
+	RawBits++;
+
+	return (*this);
 }
 
 //🔻____________________________Function_____________________________________🔻
@@ -75,12 +156,38 @@ int Fixed::toInt( void ) const
 
 int	 Fixed::getRawBits( void ) const
 {
-	//std::cout<< "getRawBits member function called";
-	//std::cout << std::endl;
 	return RawBits;
 }
 
 void Fixed::setRawBits( int const raw )
 {
 	RawBits = raw;
+}
+
+Fixed&	Fixed::min(Fixed &obj1, Fixed &obj2)
+{
+	if (obj1 < obj2)
+		return	obj1;
+	return 	obj2;
+}
+
+const Fixed&	Fixed::min(const Fixed &obj1, const Fixed &obj2)
+{
+	if (obj1 < obj2)
+		return	obj1;
+	return obj2;
+}
+
+Fixed&	Fixed::max(Fixed &obj1, Fixed &obj2)
+{
+	if (obj1 > obj2)
+		return	obj1;
+	return	obj2;
+}
+
+const Fixed&	Fixed::max(const Fixed &obj1, const Fixed &obj2)
+{
+	if (obj1 > obj2)
+		return	obj1;
+	return	obj2;
 }

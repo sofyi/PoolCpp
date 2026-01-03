@@ -6,13 +6,13 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 19:59:16 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/19 10:31:26 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/01/03 13:39:46 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-const int	Fixed::FixedPoint = 8;
+const int	Fixed::Fractional = 8;
 
 //🔺_____________________________OthodoxCanonicalForm_____________________🔺
 
@@ -24,25 +24,23 @@ Fixed::Fixed(): RawBits(0)
 Fixed::Fixed(int Num)
 {
 	std::cout << "Int constructor called" << std::endl; 
-	RawBits = Num * (1 << FixedPoint);
+	RawBits = Num * (1 << Fractional);
 }
-Fixed::Fixed(double Num) // tst doobleeeeeee eeeeee sheeeeeeeelhaaaaaaa
-{
-	std::cout << "doooooblee constructor called " << Num << std::endl; 
-}
+
 Fixed::Fixed(float Num)
 {
 	std::cout << "Float constructor called" << std::endl; 
-	RawBits = round(Num * (1 << FixedPoint));
+	RawBits = round(Num * (1 << Fractional));
 }
 
 Fixed::Fixed(const Fixed &Original)
 {
 	std::cout<<"Copy constructor called" << std::endl;
-	this->RawBits = Original.getRawBits();//tnakeshe fde tany bta3t tnady 3la operator
+	*this = Original;
 }
 
-Fixed::~Fixed(){
+Fixed::~Fixed()
+{
 	std::cout<< "Destructor called" << std::endl;
 }
 
@@ -66,19 +64,17 @@ std::ostream& operator<<(std::ostream &out, const Fixed &obj)
 
 float Fixed::toFloat( void ) const
 {
-	float res = (float)(RawBits) / ( 1 << FixedPoint);
+	float res = (float)(RawBits) / ( 1 << Fractional);
 	return(res);
 }
 
 int Fixed::toInt( void ) const
 {
-	return (RawBits / (1 << FixedPoint));
+	return (RawBits / (1 << Fractional));
 }
 
 int	 Fixed::getRawBits( void ) const
 {
-	std::cout<< "getRawBits member function called";
-	std::cout << std::endl;
 	return RawBits;
 }
 

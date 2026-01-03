@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 19:59:16 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/31 18:50:58 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/01/03 16:13:42 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ Fixed::Fixed(float Num)
 
 Fixed::Fixed(const Fixed &Original)
 {
-	//std::cout<< "coco" << std::endl;
 	this->RawBits = Original.getRawBits();
 }
 
@@ -37,7 +36,7 @@ Fixed::~Fixed(){}
 
 //🔷___________________________OperatorOverLoad____________________________🔷
 
-Fixed Fixed::operator=(const Fixed &RigthObj)
+Fixed& Fixed::operator=(const Fixed &RigthObj)
 {
 	if (&RigthObj != this)
 		this->RawBits = RigthObj.getRawBits();
@@ -52,6 +51,7 @@ std::ostream& operator<<(std::ostream &out, const Fixed &obj)
 
 bool	Fixed::operator<(const Fixed &RigthObj)const
 {
+	
 	if (toFloat() < RigthObj.toFloat())
 		return true;
 	return false;
@@ -111,9 +111,7 @@ Fixed Fixed::operator-(const Fixed &RigthObj)const
 Fixed Fixed::operator*(const Fixed &RigthObj)const
 {
 	Fixed TmpObj;
-	
-	// float a = (((float)this->RawBits / 256) * ((float)RigthObj.RawBits / 256));
-	// std::cout << "this out :" << a << std::endl;
+
 	TmpObj = Fixed(this->toFloat() * RigthObj.toFloat());
 	return (TmpObj);
 }
@@ -121,7 +119,11 @@ Fixed Fixed::operator*(const Fixed &RigthObj)const
 Fixed Fixed::operator/(const Fixed &RigthObj)const
 {
 	Fixed TmpObj;
-	
+	if ((RigthObj.getRawBits() / 256) == 0)
+	{
+		std::cout<< "error cant div 0???" << std::endl;
+		return RigthObj;
+	}
 	TmpObj = Fixed(this->toFloat() / RigthObj.toFloat());
 	return (TmpObj);
 }
@@ -178,14 +180,14 @@ const Fixed&	Fixed::min(const Fixed &obj1, const Fixed &obj2)
 	return obj2;
 }
 
-Fixed&	Fixed::max(Fixed &obj1, Fixed &obj2)
+Fixed&Fixed::max(Fixed &obj1, Fixed &obj2)
 {
 	if (obj1 > obj2)
 		return	obj1;
 	return	obj2;
 }
 
-const Fixed&	Fixed::max(const Fixed &obj1, const Fixed &obj2)
+const Fixed& Fixed::max(const Fixed &obj1, const Fixed &obj2)
 {
 	if (obj1 > obj2)
 		return	obj1;

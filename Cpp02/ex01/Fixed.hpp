@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 17:27:16 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/19 10:30:20 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/01/03 13:40:30 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,20 @@ class Fixed
 {
 	private:
 		int					RawBits;
-		static const int	FixedPoint;
+		static const int	Fractional;
 	public:
 		Fixed();
-		Fixed(double num);// tst the double matensy tchilihaa3aaa
-		Fixed(const Fixed &CopyObj);
-		Fixed &operator=(const Fixed &RigthObj);
 		Fixed(int Num);
 		Fixed(float Num);
+		Fixed(const Fixed &CopyObj);
+		Fixed &operator=(const Fixed &RigthObj);
 		~Fixed();
+		int toInt( void ) const;
+		float toFloat( void ) const;
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
-		float toFloat( void ) const;
-		int toInt( void ) const;
 };
 
-std::ostream& operator<<(std::ostream &out, const Fixed &obj);//han al chining lama nraje3 this
+std::ostream& operator<<(std::ostream &out, const Fixed &obj);
 
 #endif

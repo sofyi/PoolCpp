@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 17:27:16 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/17 09:33:05 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/01/03 10:15:10 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Fixed
 {
 	private:
 		int					RawBits;
-		static const int	FixedPoint;
+		static const int	Fractional;
 	public:
 		Fixed();
 		Fixed(const Fixed &CopyObj);

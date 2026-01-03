@@ -6,13 +6,13 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 19:59:16 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/18 13:22:13 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/01/03 12:10:26 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-const int	Fixed::FixedPoint = 8;
+const int	Fixed::Fractional = 8;
 Fixed::Fixed(): RawBits(0)
 {
 	std::cout<<"Default constructor called "<< std::endl;
@@ -21,7 +21,7 @@ Fixed::Fixed(): RawBits(0)
 Fixed::Fixed(const Fixed &Original)
 {
 	std::cout<<"Copy constructor called" << std::endl;
-	this->RawBits = Original.getRawBits();//tnakeshe fde tany bta3t tnady 3la operator
+	this->RawBits = Original.getRawBits();
 }
 
 Fixed& Fixed::operator=(const Fixed &RigthObj)
@@ -31,7 +31,8 @@ Fixed& Fixed::operator=(const Fixed &RigthObj)
 		this->RawBits = RigthObj.getRawBits();
 	return *this;
 }
-Fixed::~Fixed(){
+Fixed::~Fixed()
+{
 	std::cout<< "Destructor called" << std::endl;
 }
 

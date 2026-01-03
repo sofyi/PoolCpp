@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 17:27:30 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/18 12:58:05 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/01/03 13:41:19 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ int main( void )
 	Fixed const c( 42.42f );
 	Fixed const d( b );
 	
-	a = Fixed( 1234.4321 );// f = the compailer he now just call constructor of float witout it he will call the difult is doubl
-
+	a = Fixed( 1234.4321f );
+	
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
 	std::cout << "c is " << c << std::endl;
 	std::cout << "d is " << d << std::endl;
 	
 	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	 std::cout << "b is "<< b.toInt() << " as integer" << std::endl;
+	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
 	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-	return 0;
+return 0;
 }

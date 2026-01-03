@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 17:27:16 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/12/31 18:49:10 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/01/03 16:03:43 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Fixed
 	public:
 		Fixed();
 		Fixed(const Fixed &CopyObj);
-		Fixed	operator=(const Fixed &RigthObj);
+		Fixed&	operator=(const Fixed &RigthObj);
 		bool	operator<(const Fixed &RigthObj)const;
 		bool	operator>(const Fixed &RigthObj)const;
 		bool	operator<=(const Fixed &RigthObj)const;

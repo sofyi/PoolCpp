@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 19:59:16 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/01/03 16:13:42 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/01/03 17:31:15 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ Fixed Fixed::operator/(const Fixed &RigthObj)const
 	Fixed TmpObj;
 	if ((RigthObj.getRawBits() / 256) == 0)
 	{
-		std::cout<< "error cant div 0???" << std::endl;
+		std::cout<< "error cant division by 0???" << std::endl;
 		return RigthObj;
 	}
 	TmpObj = Fixed(this->toFloat() / RigthObj.toFloat());
@@ -143,6 +143,19 @@ Fixed&	Fixed::operator++()
 	return (*this);
 }
 
+Fixed&	Fixed::operator--()
+{
+	RawBits--;
+
+	return (*this);
+}
+Fixed	Fixed::operator--(int)
+{
+	Fixed tmp(*this);
+
+	RawBits--;
+	return tmp;
+}
 //🔻____________________________Function_____________________________________🔻
 
 float Fixed::toFloat( void ) const

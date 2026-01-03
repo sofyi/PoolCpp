@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 17:27:30 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/01/03 16:14:13 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/01/03 17:31:09 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int main( void )
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
+	
 	std::cout << Fixed::max( a, b ) << std::endl;
 	return 0;
 }

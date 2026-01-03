@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 17:27:16 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/01/03 16:03:43 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/01/03 17:31:44 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ class Fixed
 		Fixed 	operator/(const Fixed &RigthObj)const;
 		Fixed	operator++(int);// a++
 		Fixed&	operator++();// ++a
+		Fixed&	operator--();
+		Fixed	operator--(int);
 		static Fixed&		min(Fixed &obj1, Fixed &obj2);
 		static const Fixed&	min(const Fixed &obj1, const Fixed &obj2);
 		static const Fixed&	max(const Fixed &obj1, const Fixed &obj2);
@@ -54,6 +56,6 @@ class Fixed
 		int		toInt( void ) const;
 };
 
-std::ostream& operator<<(std::ostream &out, const Fixed &obj);//han al chining lama nraje3 this
+std::ostream& operator<<(std::ostream &out, const Fixed &obj);
 
 #endif

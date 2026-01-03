@@ -1,6 +1,7 @@
 NAME = OperatorOverload
 SRC = main.cpp Fixed.cpp
 OBJ = $(SRC:.cpp=.o)
+FLAGS = -Wall -Wextra -Werror #-std=c++98 
 
 all : $(NAME)
 
@@ -8,7 +9,7 @@ $(NAME) : $(OBJ)
 	c++ $(OBJ) -o $@
 
 %.o:%.cpp Fixed.hpp
-	c++ -c -Wall -Wextra -Werror $< -o $@
+	c++ -c $(FLAGS) $< -o $@
 
 clean:
 	rm -f $(OBJ)

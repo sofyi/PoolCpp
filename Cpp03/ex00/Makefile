@@ -1,13 +1,14 @@
-NAME = OrthodoxCanonical
-SRC = main.cpp Fixed.cpp
+NAME = ClapTrap
+SRC = ClapTrap.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
-FLAGS = -Wall -Wextra -Werror  -std=c++98 
+FLAGS = -Wall -Wextra -Werror -std=c++98
+
 all : $(NAME)
 
-$(NAME) : ho
-	c++ $(SRC) -o $@
+$(NAME) : $(OBJ)
+	c++ $(OBJ) -o $@
 
-%.o:%.cpp Fixed.hpp
+%.o:%.cpp ClapTrap.hpp
 	c++ -c $(FLAGS) $< -o $@
 
 clean:

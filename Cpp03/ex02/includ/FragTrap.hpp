@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/12 17:27:30 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/01/04 12:06:48 by slamhaou         ###   ########.fr       */
+/*   Created: 2026/01/09 10:52:24 by slamhaou          #+#    #+#             */
+/*   Updated: 2026/01/09 10:52:28 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
 
-int main( void ) 
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
+
+#include "ClapTrap.hpp"
+
+class  FragTrap: public ClapTrap
 {
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
+    public:
+        FragTrap();
+        ~FragTrap();
+        FragTrap(const std::string &Name);
+        void highFivesGuys(void);
+        
+};
 
-	c = b;
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-	return 0;
-}
+#endif

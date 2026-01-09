@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 19:59:16 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/01/03 17:31:15 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/01/03 17:35:28 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ bool	Fixed::operator!=(const Fixed &RigthObj)const
 Fixed Fixed::operator+(const Fixed &RigthObj)const
 {
 	Fixed TmpObj;
-	
+
 	TmpObj = Fixed(this->toFloat() + RigthObj.toFloat());
 	return TmpObj;
 }

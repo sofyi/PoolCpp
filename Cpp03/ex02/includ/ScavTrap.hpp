@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/12 17:27:30 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/01/04 12:06:48 by slamhaou         ###   ########.fr       */
+/*   Created: 2026/01/06 18:35:32 by slamhaou          #+#    #+#             */
+/*   Updated: 2026/01/09 10:52:17 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
-int main( void ) 
-{
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
+#include "ClapTrap.hpp"
 
-	c = b;
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-	return 0;
-}
+class ScavTrap : public ClapTrap
+{       
+    public:
+        ScavTrap();
+        ~ScavTrap();
+        ScavTrap(const std::string &Name);
+        void attack(const std::string& target);
+        void guardGate();
+};
+
+#endif

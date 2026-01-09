@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 17:27:16 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/01/03 17:31:44 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/01/03 17:33:49 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ class Fixed
 		static const int	FixedPoint;
 	public:
 		Fixed();
+		Fixed(int Num);
+		Fixed(float Num);
 		Fixed(const Fixed &CopyObj);
+		~Fixed();
 		Fixed&	operator=(const Fixed &RigthObj);
 		bool	operator<(const Fixed &RigthObj)const;
 		bool	operator>(const Fixed &RigthObj)const;
@@ -45,9 +48,7 @@ class Fixed
 		static const Fixed&	min(const Fixed &obj1, const Fixed &obj2);
 		static const Fixed&	max(const Fixed &obj1, const Fixed &obj2);
 		static Fixed&		max(Fixed &obj1, Fixed &obj2);
-		Fixed(int Num);
-		Fixed(float Num);
-		~Fixed();
+		
 //_____________ClassMemberFuntion_______________
 
 		int		getRawBits( void ) const;

@@ -1,7 +1,7 @@
 NAME = OrthodoxCanonical
 SRC = main.cpp Fixed.cpp
 OBJ = $(SRC:.cpp=.o)
-FLAGS = -Wall -Wextra -Werror  -std=c++98 
+FLAGS = -Wall -Wextra -Werror  #-std=c++98 
 all : $(NAME)
 
 $(NAME) : ho

@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 22:54:16 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/01/21 18:33:31 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/01/21 21:20:05 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class   Cat: public Animal
         Cat(const Cat &obj);
         Cat& operator=(const Cat &obj);
         //----------OrthoDox--------------
-        void makeSound()const;
+      //  void makeSound()const;
         void PrintBrean(unsigned int index) const;
         void SeatBrainCat(unsigned int index, std::string New);
 };

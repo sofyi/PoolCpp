@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 15:30:53 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/01/21 18:07:01 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/01/30 08:42:21 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,42 +16,42 @@
 
 int main()
 {
-    int     index;
+    //int     index;
 
-    Cat Newcat;
-    std::cout <<" ------------------------------------------- " << std::endl;
-    Cat OtheCat;
-    std::cout <<" ------------------------------------------- " << std::endl;
-    const Animal* i = new Cat();
-    std::cout <<" ------------------------------------------- " << std::endl;
-    const Animal* j = new Dog();
-    Animal *Housegarden[100];
-    std::cout <<" -----------------ArrBrain-------------------------- " << std::endl;
-    index = 0;
-    while (index < 50)
-        Housegarden[index++] = new Cat();
-    while (index < 100)
-        Housegarden[index++] = new Dog();
+    //Cat Newcat;
+    // std::cout <<" ------------------------------------------- " << std::endl;
+    // Cat OtheCat;
+    // std::cout <<" ------------------------------------------- " << std::endl;
+    // const Animal* i = new Cat();
+    // std::cout <<" ------------------------------------------- " << std::endl;
+    // const Animal* j = new Dog();
+    // Animal *Housegarden[100];
+    // std::cout <<" -----------------ArrBrain-------------------------- " << std::endl;
+    // index = 0;
+    // while (index < 50)
+    //     Housegarden[index++] = new Cat();
+    // while (index < 100)
+    //     Housegarden[index++] = new Dog();
          
-    std::cout << "----------OrthoDoxTst-----------"<< std::endl;
+    // std::cout << "----------OrthoDoxTst-----------"<< std::endl;
     
-    Newcat.SeatBrainCat(0,"Hi New idea");
-    OtheCat.PrintBrean(0);
-    OtheCat = Newcat;
-    OtheCat.PrintBrean(0);
+    // Newcat.SeatBrainCat(0,"Hi New idea");
+    // OtheCat.PrintBrean(0);
+    // OtheCat = Newcat;
+    // OtheCat.PrintBrean(0);
     
-    std::cout << "--------Destructor----------- " << std::endl;
+    // std::cout << "--------Destructor----------- " << std::endl;
     
-    index = 0;
-    while (index < 100)
-        delete Housegarden[index++];
+    // index = 0;
+    // while (index < 100)
+    //     delete Housegarden[index++];
         
-    std::cout << "\n----------Finish Destructor Loop---------" << std::endl;
+    // std::cout << "\n----------Finish Destructor Loop---------" << std::endl;
     
-    delete j;
-    delete i;
+    // delete j;
+    // delete i;
     
-    std::cout <<"\n ---------StackDestructor----------------------------- " << std::endl;
+    // std::cout <<"\n ---------StackDestructor----------------------------- " << std::endl;
     
     return 0;
 }

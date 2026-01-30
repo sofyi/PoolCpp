@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 18:20:52 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/01/21 16:41:28 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/01/21 21:11:36 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,10 @@ Cat& Cat::operator=(const Cat &obj)
 
 //----------------------ORTHO------------------------------
 
-void Cat::makeSound() const
-{
-    std::cout << "Cat sound : mmeeewwwww" << std::endl;
-}
+// void Cat::makeSound() const
+// {
+//     std::cout << "Cat sound : mmeeewwwww" << std::endl;
+// }
 
 void Cat::PrintBrean(unsigned int index) const
 {

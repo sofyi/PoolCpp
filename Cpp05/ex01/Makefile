@@ -1,0 +1,21 @@
+NAM = FORMS
+SRC =  main.cpp ./src/Bureaucrat.cpp ./src/Form.cpp
+OBJ = $(SRC:.cpp=.o)
+
+all : $(NAM)
+
+$(NAM) : $(OBJ)
+	c++ $(OBJ) -o $(NAM)
+
+%.o: %.cpp ./include/Bureaucrat.hpp ./include/Form.hpp
+	c++ -c -Wall -Wextra -Werror -std=c++98 $< -o $@
+
+clean :
+	rm -f $(OBJ)
+
+fclean : clean
+	rm -f $(NAM)
+
+re : fclean all
+
+s: all clean

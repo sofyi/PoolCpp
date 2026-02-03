@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 18:35:29 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/01/09 10:36:17 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/01/15 14:43:05 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ ScavTrap::~ScavTrap()
     std::cout<< "ScavTrap "<< Name << ": Destractour called" << std::endl;
 }
 
-ScavTrap::ScavTrap(const std::string &Name): ClapTrap(Name)
+ScavTrap::ScavTrap(const std::string &Name):ClapTrap(Name)
 {
     std::cout<< "ScavTrap " << Name << ": constractor with name called" << std::endl;
     Hitpoints = 100;

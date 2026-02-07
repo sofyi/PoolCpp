@@ -6,13 +6,14 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 20:55:54 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/03 12:02:36 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/07 10:33:07 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Intern.hpp"
 Intern::Intern()
 {
+    std::cout << "coco";
     TabNameForms[0] = "ShrubberyCreationForm";
     TabNameForms[1] = "RobotomyRequestForm";
     TabNameForms[2] = "PresidentialPardonForm";

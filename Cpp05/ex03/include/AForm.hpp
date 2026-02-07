@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 14:15:17 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/01 15:54:41 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/07 11:18:21 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define FORM_HPP
 
 #include <iostream>
+
 class Bureaucrat;
 
 class AForm

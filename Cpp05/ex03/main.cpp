@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 15:19:18 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/03 12:25:40 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/03 15:34:40 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main()
         Bureaucrat ob("coco", 1);
         Intern someRandomIntern;
         AForm* rrf;
-        rrf = someRandomIntern.makeForm("RobotomyRequestForm", "Bender");
+        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
         if (rrf)
         {
             try

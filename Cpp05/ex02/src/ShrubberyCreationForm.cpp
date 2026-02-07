@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 10:54:32 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/01 15:55:16 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/07 11:10:00 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,4 @@ void   ShrubberyCreationForm::ExecuteForm()const
     out << "  ***** " << std::endl;
     out << " ******* " << std::endl;
     out << "    |    " << std::endl;
-    out.close();
 }

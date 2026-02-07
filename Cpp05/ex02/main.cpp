@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 15:19:18 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/01 16:14:26 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/07 11:15:59 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main()
     std::cout << RobotomyForm << std::endl;
     std::cout << ShrubberyForm << std::endl;
     
-    std::cout << "\n_____High Grade____" << std::endl;
+    std::cout << "\n_____Low Grade____" << std::endl;
     try
     {
         Bureaucrat cooc ("coco", 111111);
@@ -44,7 +44,7 @@ int main()
         std::cerr << e.what() << std::endl;
     }
     
-    std::cout << "\n_____Low Grade____" << std::endl;
+    std::cout << "\n_____High Grade____" << std::endl;
     try
     {
         Bureaucrat cooc ("coco", -5);
@@ -83,5 +83,4 @@ int main()
     std::cout << PardonForm << std::endl;
     std::cout << RobotomyForm << std::endl;
     std::cout << ShrubberyForm << std::endl;
-
 }

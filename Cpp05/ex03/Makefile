@@ -1,12 +1,12 @@
-NAM = InternForms
+NAME = InternForms
 SRC =  main.cpp ./src/Bureaucrat.cpp ./src/AForm.cpp ./src/ShrubberyCreationForm.cpp ./src/RobotomyRequestForm.cpp ./src/PresidentialPardonForm.cpp \
 ./src/Intern.cpp 
 OBJ = $(SRC:.cpp=.o)
 
-all : $(NAM)
+all : $(NAME)
 
-$(NAM) : $(OBJ)
-	c++ $(OBJ) -o $(NAM)
+$(NAME) : $(OBJ)
+	c++ $(OBJ) -o $(NAME)
 
 %.o: %.cpp ./include/Bureaucrat.hpp ./include/AForm.hpp ./include/ShrubberyCreationForm.hpp
 	c++ -c -Wall -Wextra -Werror -std=c++98 $< -o $@
@@ -15,7 +15,7 @@ clean :
 	rm -f $(OBJ)
 
 fclean : clean
-	rm -f $(NAM)
+	rm -f $(NAME)
 
 re : fclean all
 

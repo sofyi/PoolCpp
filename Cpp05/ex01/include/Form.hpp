@@ -6,14 +6,13 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 14:15:17 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/01/27 17:41:23 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/07 10:56:59 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#include <iostream>
 #include "Bureaucrat.hpp"
 
 class Form

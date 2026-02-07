@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:45:43 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/03 13:06:24 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/07 11:24:16 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void Bureaucrat::incrementGrade()
 
 void Bureaucrat::decrementGrade()
 {
- 
     if (Grade == 150)
         throw GradeTooLowException();
     Grade++;
@@ -76,7 +75,7 @@ void Bureaucrat::decrementGrade()
 
 std::ostream & operator<<(std::ostream &stream, const Bureaucrat &obj)
 {
-    stream << obj.getName() << " bureaucrat grade " << obj.getGrade();
+    stream << obj.getName() << ", bureaucrat grade " << obj.getGrade();
     return stream;
 }
 
@@ -85,7 +84,7 @@ void Bureaucrat::signForm(AForm &FormObj) const
     try
     {
         FormObj.beSigned(*this);
-        std::cout << Name << ": signed" << FormObj.GetName();
+        std::cout << Name << ": signed" << FormObj.GetName() << std::endl;
     }
     catch(const std::exception& bero)
     {

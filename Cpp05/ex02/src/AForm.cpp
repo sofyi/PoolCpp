@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 14:15:27 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/01 16:00:27 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/07 11:07:04 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ AForm::AForm(const std::string name, int PGrade, int EGrade):Name(name), Sin(fal
 {
     if ( PGrade > 150 || EGrade > 150)
         throw GradeTooLowException();
-    if (PGrade <= 0 || EGrade <=0)
+    if (PGrade < 1 || EGrade < 1)
         throw GradeTooHighException();
 }
 

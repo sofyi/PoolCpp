@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 08:45:14 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/01 16:03:43 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/07 11:08:45 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ RobotomyRequestForm::~RobotomyRequestForm(){}
 RobotomyRequestForm::RobotomyRequestForm(): AForm("RobotomyRepuestForm",72,45)
 {
     Target = "DefRobotomy";
-  
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string Target): AForm("RobotomyForm",72,45)

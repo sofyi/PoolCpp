@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 15:19:18 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/01/27 17:44:13 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/07 11:01:33 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int main()
     std::cout << "----Error Form-----" << std::endl;
     try
     {
-        Form CollegForms("FORM", 170, 0);
+        Form LeetForms("FORM", 170, 0);
         Bureaucrat Bero("Beero", 1);
 
-        Bero.signForm(CollegForms);
+        Bero.signForm(LeetForms);
     }
     catch(std::exception &expt)
     {
@@ -32,10 +32,10 @@ int main()
     std::cout << "\n -----Correct Form Error Bero-----" << std::endl;
     try
     {
-        Form CollegForms("FORM", 5, 1);
+        Form LeetForms("FORM", 5, 1);
         Bureaucrat Bero("Beero", -10);
 
-        Bero.signForm(CollegForms);
+        Bero.signForm(LeetForms);
     }
     catch(std::exception &expt)
     {
@@ -43,25 +43,19 @@ int main()
     }
 
     std::cout <<"\n---Sign Form----------" << std::endl;
-    try
-    {
-        Form CollegForms("FORM", 5, 1);
+
+        Form LeetForms("FORM", 5, 1);
         Bureaucrat Bero("Beero", 5);
 
-        Bero.signForm(CollegForms);
-    }
-    catch(std::exception &expt)
-    {
-        std::cout << expt.what() << std::endl;
-    }
+        Bero.signForm(LeetForms);
     
     std::cout << "\n-----Cant Sign Beero------" << std::endl;
     try
     {
-        Form CollegForms("FORM", 5, 1);
+        Form LeetForms("FORM", 5, 1);
         Bureaucrat Bero("Beero", 15);
 
-        Bero.signForm(CollegForms);
+        Bero.signForm(LeetForms);
     }
     catch(std::exception &expt)
     {

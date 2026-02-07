@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 10:40:00 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/01/27 13:14:03 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/07 10:56:41 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-// #include "Form.hpp"
+
 class Form;
 
 class Bureaucrat
 {
    private:
     const std::string Name;
-    int                Grade;//from 1 tooooo 150
+    int               Grade;
    public:
    //--------------OrthoDox--------
    
@@ -49,11 +49,12 @@ class Bureaucrat
     
     int         getGrade() const;
     std::string getName() const;
-    void incrementGrade();//grad bytzad y3ni 2 --> 1
-    void decrementGrade();//grad n9as y3ny 2 --> 3
+    void incrementGrade();
+    void decrementGrade();
     void signForm(Form &FormObj)const;
    
 };
 
 std::ostream & operator<<(std::ostream &stream, const Bureaucrat &obj);
+
 #endif

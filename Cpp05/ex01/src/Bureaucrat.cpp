@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 21:45:43 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/03 12:46:47 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/07 10:57:35 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,21 +51,21 @@ std::string Bureaucrat::getName() const
 {
     return Name;
 }
+
 int Bureaucrat::getGrade() const
 {
     return Grade;
 }
+
 void Bureaucrat::incrementGrade()
 {
     if (Grade == 1)
         throw GradeTooHighException();
     Grade--;
-    
 }
 
 void Bureaucrat::decrementGrade()
 {
- 
     if (Grade == 150)
         throw GradeTooLowException();
     Grade++;

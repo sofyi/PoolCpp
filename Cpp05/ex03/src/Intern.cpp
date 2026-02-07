@@ -6,25 +6,27 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 20:55:54 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/07 10:33:07 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/07 11:21:42 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Intern.hpp"
+
+Intern::~Intern(){}
 Intern::Intern()
 {
-    std::cout << "coco";
-    TabNameForms[0] = "ShrubberyCreationForm";
-    TabNameForms[1] = "RobotomyRequestForm";
-    TabNameForms[2] = "PresidentialPardonForm";
+    TabNameForms[0] = "shrubbery creation";
+    TabNameForms[1] = "robotomy request";
+    TabNameForms[2] = "presidential pardon";
 }
-Intern::~Intern(){}
+
 Intern::Intern(const Intern &obj)
 {
     TabNameForms[0] = obj.TabNameForms[0];
     TabNameForms[1] = obj.TabNameForms[1];
     TabNameForms[2] = obj.TabNameForms[2];
 }
+
 Intern &Intern::operator=(const Intern &obj)
 {
     (void) obj;
@@ -35,7 +37,7 @@ Intern &Intern::operator=(const Intern &obj)
 AForm*    Intern::makeForm(std::string Form, std::string Target)
 {
     int index;
-    ShrubberyCreationForm *Shruby;
+
     index = 0;
     while (index < 3)
     {
@@ -46,18 +48,8 @@ AForm*    Intern::makeForm(std::string Form, std::string Target)
     switch (index)
     {
         case 0:
-            try
-            {
-                Shruby = new(std::nothrow) ShrubberyCreationForm(Target);
-                std::cout << "Intern creates " << Form << std::endl;
-                return Shruby;
-            }
-            catch(const std::exception& e)
-            {
-                std::cout << e.what() << std::endl;
-                return NULL;
-            }
-            
+            std::cout << "Intern creates " << Form << std::endl;
+            return new(std::nothrow) ShrubberyCreationForm(Target);
         case 1:
             std::cout << "Intern creates " << Form << std::endl;
             return new(std::nothrow)  RobotomyRequestForm(Target);
@@ -65,7 +57,7 @@ AForm*    Intern::makeForm(std::string Form, std::string Target)
             std::cout << "Intern creates " << Form << std::endl;
             return new(std::nothrow)  PresidentialPardonForm(Target);
         default:
-            std::cout << "Msg From Intern This Form unavailable" << std::endl;
+            std::cout << "Intern: This form is unavailable" << std::endl;
             return NULL;
     }
 }

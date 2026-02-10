@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 15:34:27 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/06 13:50:23 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/10 14:49:04 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,17 @@
 #define SCALARCONVERTER_HPP
 
 #include <iostream>
+#include <limits.h>
+#include <cmath>
 class ScalarConverter
 {
+    private:
+        ScalarConverter();
+        ~ScalarConverter();
+        ScalarConverter(const ScalarConverter &obj);
+        ScalarConverter &operator=(const ScalarConverter &obj);
     public:
-    static void convert(std::string input);
+        static void convert(std::string input);
 };
 
 #endif

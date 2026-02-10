@@ -8,7 +8,7 @@ $(NAME) : $(OBJ)
 	c++ $(OBJ) -o $(NAME)
 
 %.o: %.cpp ScalarConverter.hpp
-	c++ -c -Wall -Wextra -Werror -std=c++98 $< -o $@
+	c++ -c -Wall -Wextra -Werror -std=c++98 -Wconversion $< -o $@
 
 clean :
 	rm -f $(OBJ)

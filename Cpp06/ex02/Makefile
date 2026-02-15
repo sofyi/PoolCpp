@@ -1,5 +1,5 @@
-NAME = ScalarConvert
-SRC = ScalarConverter.cpp main.cpp
+NAME = Base
+SRC =  Base.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all : $(NAME)
@@ -7,9 +7,9 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	c++ $(OBJ) -o $(NAME)
 
-%.o: %.cpp ScalarConverter.hpp
-	c++ -c -Wall -Wextra -Werror -std=c++98 $< -o $@
-# -Wconversion 
+%.o: %.cpp  Base.hpp
+	c++ -c -Wall -Wextra -Werror -std=c++98 -Wconversion $< -o $@
+
 clean :
 	rm -f $(OBJ)
 

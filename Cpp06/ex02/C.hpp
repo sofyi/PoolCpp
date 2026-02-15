@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   C.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/04 15:34:27 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/11 18:32:54 by slamhaou         ###   ########.fr       */
+/*   Created: 2026/02/14 16:37:03 by slamhaou          #+#    #+#             */
+/*   Updated: 2026/02/14 16:45:44 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-#define SCALARCONVERTER_HPP
+#ifndef C_HPP
+#define C_HPP
 
-#include <iostream>
-#include <limits.h>
-#include <cmath>
+#include "Base.hpp"
 
-class ScalarConverter
-{
-    private:
-        ScalarConverter();
-        ~ScalarConverter();
-        ScalarConverter(const ScalarConverter &obj);
-        ScalarConverter &operator=(const ScalarConverter &obj);
-    public:
-        static void convert(std::string input);
-};
+class C : public Base
+{};
 
 #endif

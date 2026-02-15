@@ -5,19 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/06 13:11:39 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/11 18:33:20 by slamhaou         ###   ########.fr       */
+/*   Created: 2026/02/12 13:35:28 by slamhaou          #+#    #+#             */
+/*   Updated: 2026/02/14 16:18:00 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Serializer.hpp"
 
-int main(int ac, char **av)
+int main()
 {
-    if (ac != 2)
-    {
-        std::cout << "Not Valid Input" << std::endl;
-        return 1;
-    }
-    ScalarConverter::convert(av[1]);
+  Data *data;
+  Data *NewPata;
+  uintptr_t num;
+  
+  data = new Data;
+  std::cout << "Address of original data: " << data << std::endl;
+  
+  num = Serializer::serialize(data);
+  
+  std::cout <<"Read Adress As unitptr_t : " << num << std::endl;
+  
+  NewPata = Serializer::deserialize(num);
+
+  std::cout << "Deserialized uintptr_t back to pointer: " << NewPata << std::endl; 
+  delete data;
+    
 }
+

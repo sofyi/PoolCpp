@@ -5,19 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/06 13:11:39 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/11 18:33:20 by slamhaou         ###   ########.fr       */
+/*   Created: 2026/02/14 18:11:58 by slamhaou          #+#    #+#             */
+/*   Updated: 2026/02/15 11:23:43 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
+#include "Base.hpp"
 
-int main(int ac, char **av)
+int main()
 {
-    if (ac != 2)
-    {
-        std::cout << "Not Valid Input" << std::endl;
-        return 1;
-    }
-    ScalarConverter::convert(av[1]);
+    Base * Bas1 =  generate();
+    Base * base2 =  generate();
+    Base * base3 =  generate();
+    
+    std::cout << "---- with pointer ----" << std::endl;
+    identify(Bas1);
+    identify(base2);
+    identify(base3);
+    std::cout << "\n---- with reference ----" << std::endl;
+    identify(*Bas1);
+    identify(*base2);
+    identify(*base3);
+    
 }

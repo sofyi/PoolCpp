@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 15:34:27 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/19 21:15:56 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/21 11:19:12 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 #include <cmath>
 #include <cstdlib>
 #include <string>
-
-
+#include <cctype>
+ #include <iomanip>
+#include <stdexcept>
 class ScalarConverter
 {
     private:
@@ -28,7 +29,7 @@ class ScalarConverter
         ScalarConverter(const ScalarConverter &obj);
         ScalarConverter &operator=(const ScalarConverter &obj);
     public:
-        static void convert(std::string input);
+        static void convert(const std::string &input);
 };
 
 #endif

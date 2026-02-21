@@ -1,5 +1,5 @@
-NAME = Base
-SRC =  Base.cpp main.cpp
+NAME = ArrayTmp
+SRC =  main2.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all : $(NAME)
@@ -7,8 +7,8 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	c++ $(OBJ) -o $(NAME)
 
-%.o: %.cpp  Base.hpp A.hpp B.hpp c.hpp 
-	c++ -c -Wall -Wextra -Werror -std=c++98 -Wconversion $< -o $@
+%.o: %.cpp Array.hpp
+	c++ -c -Wall -Wextra -Werror -std=c++98 $< -o $@
 
 clean :
 	rm -f $(OBJ)

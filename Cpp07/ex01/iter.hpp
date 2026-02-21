@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/06 13:11:39 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/20 11:31:38 by slamhaou         ###   ########.fr       */
+/*   Created: 2026/02/16 09:44:33 by slamhaou          #+#    #+#             */
+/*   Updated: 2026/02/16 18:17:53 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef ITER_HPP
+#define ITER_HPP
 
-int main(int ac, char **av)
+#include <iostream>
+
+template <typename Ttyp>
+void    iter(Ttyp *arr, const int length, void(*f)(Ttyp &))
 {
-    if (ac != 2)
-    {
-        std::cout << "Not Valid Input" << std::endl;
-        return 1;
-    }
-    try
-    {
-        ScalarConverter::convert(av[1]);
-        /* code */
-    }
-    catch(...)
-    {
-        
-    }
-    
+    int index;
+
+    index = 0;
+    while (index < length)
+        f(arr[index++]);
 }
+#endif

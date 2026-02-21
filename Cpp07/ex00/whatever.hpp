@@ -1,32 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/06 13:11:39 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/20 11:31:38 by slamhaou         ###   ########.fr       */
+/*   Created: 2026/02/15 15:47:13 by slamhaou          #+#    #+#             */
+/*   Updated: 2026/02/15 16:53:08 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef WHATEVER_HPP
+#define WHATEVER_HPP
 
-int main(int ac, char **av)
+#include <iostream>
+
+template <typename Typ>
+
+void swap(Typ &a, Typ &b)
 {
-    if (ac != 2)
-    {
-        std::cout << "Not Valid Input" << std::endl;
-        return 1;
-    }
-    try
-    {
-        ScalarConverter::convert(av[1]);
-        /* code */
-    }
-    catch(...)
-    {
-        
-    }
+    Typ tmp;
     
+    tmp = a;
+    a = b;
+    b = tmp;
 }
+
+template <typename Typ>
+Typ min(Typ a, Typ b)
+{
+    if (a < b)
+        return a;
+    return b;
+}
+
+template <typename Typ>
+Typ max(Typ a, Typ b)
+{
+    if (a > b)
+        return a;
+    return b;
+}
+
+#endif

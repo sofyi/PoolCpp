@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 15:34:27 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/11 18:32:54 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/19 21:15:56 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #include <iostream>
 #include <limits.h>
 #include <cmath>
+#include <cstdlib>
+#include <string>
+
 
 class ScalarConverter
 {

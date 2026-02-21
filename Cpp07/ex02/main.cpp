@@ -5,28 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/06 13:11:39 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/20 11:31:38 by slamhaou         ###   ########.fr       */
+/*   Created: 2026/02/16 16:05:31 by slamhaou          #+#    #+#             */
+/*   Updated: 2026/02/19 16:37:22 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
 
-int main(int ac, char **av)
+#include "Array.hpp"
+int main()
 {
-    if (ac != 2)
-    {
-        std::cout << "Not Valid Input" << std::endl;
-        return 1;
-    }
-    try
-    {
-        ScalarConverter::convert(av[1]);
-        /* code */
-    }
-    catch(...)
-    {
-        
-    }
-    
+    Array<int> StudentId;
+    Array<std::string> StudentName; 
+
+    StudentId[0] = 12;
+    StudentName[0] = "safia";
+
+    std::cout << StudentId[0] << std::endl;
+    std::cout << StudentName[0] << std::endl;
+
 }

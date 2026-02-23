@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 13:11:39 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/21 12:52:18 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/23 14:04:01 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int main(int ac, char **av)
 {
-    double a = 42.0;
-    std::cout << a << std::endl;
     if (ac != 2)
     {
         std::cout << "Not Valid Input" << std::endl;

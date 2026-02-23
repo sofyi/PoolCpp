@@ -8,7 +8,7 @@ $(NAME) : $(OBJ)
 	c++ $(OBJ) -o $(NAME)
 
 %.o: %.cpp  Serializer.hpp
-	c++ -c -Wall -Wextra -Werror -std=c++98 -Wconversion $< -o $@
+	c++ -c -Wall -Wextra -Werror -std=c++98  $< -o $@
 
 clean :
 	rm -f $(OBJ)

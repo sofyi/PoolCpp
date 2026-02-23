@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 17:24:11 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/21 12:44:34 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/23 19:42:44 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter &obj)
 
 //______________________MEMBER FUNCTION___________________________
 
-int NumAfterPoint(const std::string &input)
+size_t NumAfterPoint(const std::string &input)
 {
     size_t index;
     size_t i;
 
     i = 0;
-    index = static_cast<int>(input.find("."));
+    index = (input.find("."));
     if (index == input.npos || input[index + 1] == 'f')
         return (1);
     index++;
@@ -55,7 +55,7 @@ void    CharConvert(const std::string &input)
     int  ToInt;
     double ToDouble;
     float ToFloat;
-  
+    std::cout << "hear char" << std::endl;
     ToInt = input[0];
     Tochar = input[0];
     ToFloat = input[0];
@@ -67,16 +67,16 @@ void    CharConvert(const std::string &input)
         std::cout << "char : '" << Tochar << "'" << std::endl;
     std::cout << "int : " << ToInt << std::endl;
     std::cout << "float : " << std::fixed << std::setprecision(1) << ToFloat << "f" << std::endl;
-    std::cout << "double : " << std::fixed << std::setprecision(1) << ToDouble << std::endl;
+    std::cout << "double : " << std::fixed << ToDouble << std::endl;
 }
 
 void Infynity(const std::string &input)
 {
     char *p;
     double conv;
-
+  std::cout << "hear infinan" << std::endl;
     conv = strtod(input.c_str(), &p);
-    if ((p[0] != '\0' && p[0] != 'f')||( p[0] == 'f' && (p[1] != '\0')) || (input.find(" ") != std::string::npos))
+    if ((p[0] != '\0' && p[0] != 'f')||( p[0] == 'f' && (p[1] != '\0')))
     {
         std::cout << "❌Error input❌" << std::endl;
         return ;
@@ -102,24 +102,30 @@ void    printed(T Int, const std::string &input)
         std::cout << "char: impossible"<< std::endl;
     else
     {
-        if (!isprint(Int))
+        if (!isprint(static_cast<int>(Int)))
               std::cout << "char: Non displayable"<< std::endl;
         else
             std::cout << "char: '" << static_cast<char>(Int)<< "'" << std::endl;
     }
     if (Int > INT_MAX || Int < INT_MIN)
+    {
         std::cout << "int: impossible"<< std::endl;
+        std::cout << "float: impossible"  << std::endl;
+        std::cout << "double: impossible" << std::endl;
+    }
     else
+    {
         std::cout << "int: " << static_cast<int>(Int)<< std::endl;
-    std::cout << "float: " << std::fixed << std::setprecision(NumAfterPoint(input)) << static_cast<float>(Int) << "f" << std::endl;
-    std::cout << "double: "<< std::setprecision(NumAfterPoint(input)) << static_cast<double>(Int) << std::endl;
+        std::cout << "float: " << std::fixed << std::setprecision(static_cast<int> (NumAfterPoint(input))) << static_cast<float>(Int) << "f" << std::endl;
+        std::cout << "double: " << static_cast<double>(Int) << std::endl;    
+    }
 }
 
 void    ToInt(const std::string &input)
 {
     long Int;
     char *p;
-    // std::cout << "this is int" << std::endl;
+  std::cout << "hear int" << std::endl;
     Int = strtol(input.c_str(), &p,10);
     if (p[0] != '\0')
     {
@@ -133,10 +139,9 @@ void ToFloat(const std::string &input)
 {
     float F;
     char *p;
-    
-    // std::cout << "this is float" << std::endl;
+    std::cout << "hear float" << std::endl;
     F = strtof(input.c_str(), &p);
-    if ((p[0] == 'f' && *(p+1) != '\0' ) || (input.find(" ") != input.npos) ||  p[0] != 'f')
+    if ((p[0] == 'f' && *(p+1) != '\0' ) || p[0] != 'f')
     {
         std::cout << "❌Error input❌" << std::endl;
         return ;
@@ -148,10 +153,9 @@ void    ToDouble(const std::string &input)
 {
     double Double;
     char *p;
-    
-    // std::cout << "this is double" << std::endl;
+      std::cout << "--------hear doodo----" << std::endl;
     Double = strtod(input.c_str(), &p);
-    if (p[0] || input.find(" ") != input.npos)
+    if (p[0])
     {
         std::cout << "❌Error input❌" << std::endl;
         return ;
@@ -160,29 +164,29 @@ void    ToDouble(const std::string &input)
     
 }
 
-bool IsAllDigit(const std::string &input)
-{
-    size_t index;
-
-    for(index = 0; index < input.size(); index++)
-        if (!std::isdigit(input[index]))
-            return false;
-    return true;
-}
 int pars(const std::string &input)
 {
-    if (input == "-inff" || input == "+inff" || input == "-inf" || input == "+inf" || std::isnan(strtod(input.c_str(), NULL)))
+    double conv;
+    char *p;
+    
+    conv = strtod(input.c_str(), &p);
+    if ((isnan(conv) && input[0] != 'n') || (isnan(conv) && !(!p[0] || p[0] == 'f')))
+        return -1;
+    if ((std::isinf(conv) && !(input[0] == '+' || input[0] == '-')) || input.find(" ") != input.npos)
+        return -1;
+    if (std::isinf(conv) || (isnan(conv)))
         return 0;
     if (input.size() == 1 && !isdigit(input[0]))
         return 1;
-    if (input.find_last_of("f. ") == std::string::npos && IsAllDigit(input))
+    if (input.find_last_not_of("+-0123456789") == std::string::npos)
         return 2;
-    if (input.find("f") != input.npos && input.find(" ") == input.npos)
+    if (input.find("f") != input.npos)
         return 3;
     if (input.find(".") != input.npos)
         return 4;
     return (-1);
 }
+
 void ScalarConverter::convert(const std::string &input)
 {
     int Index;
@@ -207,6 +211,6 @@ void ScalarConverter::convert(const std::string &input)
             ToDouble(input);
             break;
         default:
-            std::cout << "ttttt hada mafy zen" << std::endl;
+            std::cout << "❌invalid input❌" << std::endl;
     }
 }

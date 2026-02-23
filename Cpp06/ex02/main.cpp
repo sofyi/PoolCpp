@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 18:11:58 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/21 12:08:09 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/22 17:52:29 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 int main()
 {
+    srand(time(0));
     Base * Bas1 =  generate();
     Base * base2 =  generate();
     Base * base3 =  generate();

@@ -6,12 +6,12 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 17:24:11 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/23 19:42:44 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/24 09:58:21 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-
+#include <cfloat>
  
 //-_________________________________ORTHO DOX________________________________
 
@@ -96,29 +96,27 @@ void Infynity(const std::string &input)
 }
 
 template<typename T>
-void    printed(T Int, const std::string &input)
+void    printed(T Typ, const std::string &input)
 {
-    if (Int > 127 || Int < 0)
+   std::cout << std::fixed << std::setprecision(static_cast<int> (NumAfterPoint(input)));
+    if (Typ > 127 || Typ < 0)
         std::cout << "char: impossible"<< std::endl;
     else
     {
-        if (!isprint(static_cast<int>(Int)))
+        if (!isprint(static_cast<int>(Typ)))
               std::cout << "char: Non displayable"<< std::endl;
         else
-            std::cout << "char: '" << static_cast<char>(Int)<< "'" << std::endl;
+            std::cout << "char: '" << static_cast<char>(Typ)<< "'" << std::endl;
     }
-    if (Int > INT_MAX || Int < INT_MIN)
-    {
+    if (Typ > INT_MAX || Typ < INT_MIN)
         std::cout << "int: impossible"<< std::endl;
-        std::cout << "float: impossible"  << std::endl;
-        std::cout << "double: impossible" << std::endl;
-    }
     else
-    {
-        std::cout << "int: " << static_cast<int>(Int)<< std::endl;
-        std::cout << "float: " << std::fixed << std::setprecision(static_cast<int> (NumAfterPoint(input))) << static_cast<float>(Int) << "f" << std::endl;
-        std::cout << "double: " << static_cast<double>(Int) << std::endl;    
-    }
+        std::cout << "int: " << static_cast<int>(Typ)<< std::endl;
+    if ( Typ > FLT_MAX || Typ < -FLT_MAX)
+        std::cout << "float: impossible" << std::endl;
+    else
+        std::cout << "float: "<< static_cast<float>(Typ) << "f" << std::endl;
+    std::cout << "double: " << static_cast<double>(Typ) << std::endl;    
 }
 
 void    ToInt(const std::string &input)
@@ -178,11 +176,11 @@ int pars(const std::string &input)
         return 0;
     if (input.size() == 1 && !isdigit(input[0]))
         return 1;
-    if (input.find_last_not_of("+-0123456789") == std::string::npos)
+    if (input.find_last_not_of("+-0123456789") == std::string::npos && conv < INT_MAX && conv > INT_MIN)
         return 2;
     if (input.find("f") != input.npos)
         return 3;
-    if (input.find(".") != input.npos)
+    if (input.find("f") == input.npos)
         return 4;
     return (-1);
 }

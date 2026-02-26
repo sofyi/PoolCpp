@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 18:11:58 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/22 17:52:29 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/24 14:08:49 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,22 @@
 
 int main()
 {
-    srand(time(0));
-    Base * Bas1 =  generate();
-    Base * base2 =  generate();
-    Base * base3 =  generate();
+    srand(time(NULL));
+    Base * Base1 =  generate();
+    Base * Base2 =  generate();
+    Base * Base3 =  generate();
 
     std::cout << "---- with pointer ----" << std::endl;
-    identify(Bas1);
-    identify(base2);
-    identify(base3);
-    std::cout << "\n---- with reference ----" << std::endl;
-    identify(*Bas1);
-    identify(*base2);
-    identify(*base3);
+    identify(Base1);
+    identify(Base2);
+    identify(Base3);
     
+    std::cout << "\n---- with reference ----" << std::endl;
+    identify(*Base1);
+    identify(*Base2);
+    identify(*Base3);
+    
+    delete Base1;
+    delete Base2;
+    delete Base3;
 }

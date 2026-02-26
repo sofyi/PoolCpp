@@ -1,5 +1,5 @@
 NAME = ArrayTmp
-SRC =  main2.cpp
+SRC =  main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all : $(NAME)

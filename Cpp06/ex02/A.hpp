@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 16:36:24 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/14 18:17:48 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/24 13:39:52 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,6 @@
 #include "Base.hpp"
 
 class A : public Base
-{
-    public:
-     void coco()
-     {
-        std::cout << "haaaloooo" << std::endl;
-     }
-};
+{};
 
 #endif

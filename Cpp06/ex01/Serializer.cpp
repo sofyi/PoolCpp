@@ -6,11 +6,12 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 13:42:07 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/22 17:24:13 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/24 13:36:20 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
+
 Serializer:: ~Serializer(){}
 Serializer:: Serializer(){}
 Serializer:: Serializer(const Serializer &obj)

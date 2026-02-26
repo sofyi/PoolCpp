@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 16:05:38 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/19 16:30:00 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/26 14:57:01 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,15 @@ class Array
     Array();
     Array(unsigned int n);
     Array(const Array &otherArr);
+    Array<Typ>& operator=(const Array<Typ> &OtherArr);
 //-----------------------------------Operetor-----------------
 
     Typ& operator[](size_t Nsend);
-    Array<Typ>& operator=(const Array<Typ> &OtherArr);
 
 //------------------------------------MemberFuncion--------------
     size_t  size();
 };
 
-
 #include "Array.tpp"
-    
 
 #endif

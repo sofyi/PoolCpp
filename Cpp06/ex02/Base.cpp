@@ -6,14 +6,14 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 16:18:45 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/21 12:09:53 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/24 14:11:48 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
+#include "Base.hpp"
 
 Base::~Base(){}
 
@@ -39,14 +39,14 @@ void identify(Base* p)
     else if (dynamic_cast<C*>(p))
         std::cout << "this is B class" << std::endl;
     else 
-        std::cout << "tttttt sadik mafi hada nafarat" << std::endl;
+        std::cout << "invalid Class" << std::endl;
 }
 
 void identify(Base& p)
 {
     try
     {    
-       A i = dynamic_cast<A&>(p);
+       A a = dynamic_cast<A&>(p);
         std::cout << "this is A class" << std::endl;
         return;
     }
@@ -54,7 +54,7 @@ void identify(Base& p)
     {}
     try
     {
-       B  c =  dynamic_cast<B&>(p);
+       B  b =  dynamic_cast<B&>(p);
         std::cout << "this is B class" << std::endl;
         return;
     }
@@ -62,11 +62,11 @@ void identify(Base& p)
     {}
     try
     {
-      C h =  dynamic_cast<C&>(p);
+      C c =  dynamic_cast<C&>(p);
         std::cout << "this is C class" << std::endl; 
         return;
     }
     catch(const std::exception& e)
     {}
-    std::cout << "ttttt bad cast" << std::endl;
+    std::cout << "bad_cast" << std::endl;
 }

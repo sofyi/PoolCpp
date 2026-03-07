@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   easyfind.tpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/16 09:44:33 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/03/05 09:55:28 by slamhaou         ###   ########.fr       */
+/*   Created: 2026/02/26 17:24:09 by slamhaou          #+#    #+#             */
+/*   Updated: 2026/03/05 12:40:24 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-#define ITER_HPP
-
-#include <iostream>
-
-template <typename Typ>
-void    iter(Typ *arr, const int length, void(*f)(Typ &))
-{
-    int index;
-
-    index = 0;
-    while (index < length)
-        f(arr[index++]);
-}
+#include "easyfind.hpp"
 
 template <typename T>
-void    iter(const T *arr, const int length, void(*f)(const T &))
+size_t easyfind(T &Array, int Serch)
 {
-    int index;
-
-    index = 0;
-    while (index < length)
-        f(arr[index++]);
+	
+ typename T::iterator i = find(Array.begin(),Array.end(), Serch ) ;
+	if (i != Array.end())
+		return std::distance(Array.begin(), i);
+	return -1;
 }
-
-#endif

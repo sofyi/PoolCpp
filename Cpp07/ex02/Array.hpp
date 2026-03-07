@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 16:05:38 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/26 14:57:01 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/27 12:42:54 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define ARRAY_HPP
 
 #include <iostream>
-
 template <typename Typ>
 class Array
 {
@@ -41,9 +40,10 @@ class Array
 //-----------------------------------Operetor-----------------
 
     Typ& operator[](size_t Nsend);
+    const Typ& operator[](size_t Nsend)const;
 
 //------------------------------------MemberFuncion--------------
-    size_t  size();
+    size_t  size()const ;
 };
 
 #include "Array.tpp"

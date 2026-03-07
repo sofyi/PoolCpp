@@ -6,15 +6,14 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 18:19:10 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/02/19 17:14:37 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/02/27 13:15:24 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
+//______________________________OrthoDox__________________________
 
-
-//----------------------------OrthoDox----------------------
 
 template <typename Typ>
 Array<Typ>::~Array()
@@ -46,20 +45,12 @@ Array<T>::Array(const Array &otherArr)
     Index = 0;
     
     this->N = otherArr.N;
-    Arr = new T[otherArr.N]();     
+    Arr = new T[otherArr.N]();    
     while (Index < otherArr.N)
     {
         Arr[Index] = otherArr.Arr[Index];
         Index++;
     }
-}
-
-template <typename T>
-T& Array<T>::operator[](size_t Nsend)
-{
-    if (Nsend >= this->N)
-        throw Error();
-    return Arr[Nsend];  
 }
 
 template <typename Typ>
@@ -77,8 +68,29 @@ Array<Typ>& Array<Typ>::operator=(const Array<Typ> &OtherArr)
        std::cout << Index << std::endl;
     }
     return *this;
-} 
-//--------------------inerClass--------------------
+}
+
+//--_______________________________Operetor_________________________________
+
+
+template <typename T>
+T& Array<T>::operator[](size_t Nsend)
+{
+    if (Nsend >= this->N)
+        throw Error();
+    return Arr[Nsend];  
+}
+
+template <typename T>
+const T& Array<T>::operator[](size_t Nsend)const
+{
+    if (Nsend >= this->N)
+        throw Error();
+    return Arr[Nsend];  
+}
+
+
+//________________________inerClass_______________________________________
 
 template<typename T>
 const char* Array<T>::Error::what() const throw()
@@ -87,7 +99,7 @@ const char* Array<T>::Error::what() const throw()
 }
 
 template <typename T>
-size_t Array<T>::size()
+size_t Array<T>::size()const
 {
     return N;
 }

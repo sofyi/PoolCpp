@@ -1,5 +1,5 @@
-NAME = ArrayTmp
-SRC =  main.cpp
+NAME = esyFind
+SRC =  main.cpp 
 OBJ = $(SRC:.cpp=.o)
 
 all : $(NAME)
@@ -7,7 +7,7 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	c++ $(OBJ) -o $(NAME)
 
-%.o: %.cpp Array.hpp Array.tpp
+%.o: %.cpp esyfind.hpp esyfind.tpp
 	c++ -c -Wall -Wextra -Werror -std=c++98 $< -o $@
 
 clean :

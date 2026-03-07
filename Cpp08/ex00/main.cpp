@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/16 09:44:33 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/03/05 09:55:28 by slamhaou         ###   ########.fr       */
+/*   Created: 2026/02/25 13:55:05 by slamhaou          #+#    #+#             */
+/*   Updated: 2026/03/05 12:40:56 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-#define ITER_HPP
-
+#include "easyfind.hpp"
 #include <iostream>
-
-template <typename Typ>
-void    iter(Typ *arr, const int length, void(*f)(Typ &))
+#include <vector>
+int main()
 {
-    int index;
+	std::vector<int> IntVector;
 
-    index = 0;
-    while (index < length)
-        f(arr[index++]);
+	IntVector.push_back(5);
+	IntVector.push_back(15);
+	IntVector.push_back(-5);
+	IntVector.push_back(20);
+	IntVector.push_back(25);
+	std::cout << easyfind(IntVector, -53) << std::endl;
 }
-
-template <typename T>
-void    iter(const T *arr, const int length, void(*f)(const T &))
-{
-    int index;
-
-    index = 0;
-    while (index < length)
-        f(arr[index++]);
-}
-
-#endif

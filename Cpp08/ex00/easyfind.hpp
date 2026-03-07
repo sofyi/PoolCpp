@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/16 09:44:33 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/03/05 09:55:28 by slamhaou         ###   ########.fr       */
+/*   Created: 2026/02/25 13:55:01 by slamhaou          #+#    #+#             */
+/*   Updated: 2026/02/27 00:47:29 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-#define ITER_HPP
+#ifndef  ESYFIND_HPP
+#define ESYFIND_HPP
 
 #include <iostream>
-
-template <typename Typ>
-void    iter(Typ *arr, const int length, void(*f)(Typ &))
-{
-    int index;
-
-    index = 0;
-    while (index < length)
-        f(arr[index++]);
-}
+#include <vector>
 
 template <typename T>
-void    iter(const T *arr, const int length, void(*f)(const T &))
-{
-    int index;
-
-    index = 0;
-    while (index < length)
-        f(arr[index++]);
-}
-
+size_t easyfind(T &Array, int Num);
+#include "easyfind.tpp"
 #endif

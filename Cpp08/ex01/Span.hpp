@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/25 13:55:01 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/03/12 02:23:04 by slamhaou         ###   ########.fr       */
+/*   Created: 2026/03/12 19:19:58 by slamhaou          #+#    #+#             */
+/*   Updated: 2026/03/12 20:29:12 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef  ESYFIND_HPP
-#define ESYFIND_HPP
+#pragma once
 
-#include <list>
-#include <deque>
-#include <vector>
-#include <iostream>
-
-
-
-template <typename T>
-long easyfind(T &Array, int Num);
-
-#include "easyfind.tpp"
-#endif
+class Span
+{
+	public:
+		//addNumber() ;
+		// shortestSpan();
+		// longestSpan();
+};

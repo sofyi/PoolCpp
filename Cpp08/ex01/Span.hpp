@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 19:19:58 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/03/13 05:35:06 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/03/13 05:53:32 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class Span
 	public:
 	//__________--OrthoDox--_________
 	Span();
-	
 	~Span();
 	Span(unsigned int N);
 	Span (const Span &obj);
@@ -31,6 +30,6 @@ class Span
 	
 	//____________--MemberFunction--_______
 	void addNumber(long n) ;
-	// shortestSpan();
-	// longestSpan();
+	long shortestSpan();
+	long longestSpan();
 };

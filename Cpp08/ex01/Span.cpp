@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 19:19:55 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/03/13 05:03:50 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/03/13 05:53:25 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,14 @@ Span& Span::operator=(const Span obj)
 void Span::addNumber(long n)
 {
     if (ListInteger.size() == N)
-        throw exeption;
+        throw std::__throw_length_error;// taked had obj wla sho
     ListInteger.push_back(n);
 }
-// shortestSpan();
-// longestSpan();
+long Span::shortestSpan()
+{
+    
+}
+long longestSpan()
+{
+    
+}

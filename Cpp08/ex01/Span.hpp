@@ -3,19 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: slamhaou <slamhaou>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 19:19:58 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/03/12 20:29:12 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/03/13 05:35:06 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
+#include <iostream>
+#include <list>
+
 class Span
 {
+	private:
+		unsigned N;
+		std::list<long> ListInteger;
 	public:
-		//addNumber() ;
-		// shortestSpan();
-		// longestSpan();
+	//__________--OrthoDox--_________
+	Span();
+	
+	~Span();
+	Span(unsigned int N);
+	Span (const Span &obj);
+	Span & operator=(const Span obj);
+	
+	//____________--MemberFunction--_______
+	void addNumber(long n) ;
+	// shortestSpan();
+	// longestSpan();
 };

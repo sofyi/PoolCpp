@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: slamhaou <slamhaou>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 19:19:55 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/03/17 19:41:48 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/03/20 04:33:50 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <climits>// tb3 long max 
 
 Span::~Span() {}
 Span::Span(unsigned int N):N(N) 
@@ -59,7 +60,7 @@ long Span::shortestSpan()
     if (N == 1)
         throw ErrorSpan();
    it  = VArr.begin();
-   shorts = LONG_MAX;
+   shorts = LONG_MAX;//hayed hady rah c style
    while (it != VArr.end())
    {
         res = abs( *it - *(it + 1) );

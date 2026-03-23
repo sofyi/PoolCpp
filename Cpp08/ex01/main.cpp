@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: slamhaou <slamhaou>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 19:17:40 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/03/17 20:11:56 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/03/20 03:08:43 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ std::cout << "----------------- Tst  2--------------" << std::endl;
 			Span tst = Span(1);
 			tst.longestSpan();
 		}
-		catch( Span::ErrorSpan e)
+		catch( Span::ErrorSpan &e)
 		{
 			std::cout << e.what()  << std::endl;
 		}
@@ -61,7 +61,7 @@ std::cout << "----------------- Tst  2--------------" << std::endl;
 			Span tst = Span(0);
 			tst.addNumber(1);
 		}
-		catch( Span::ErrorSpan e)
+		catch( Span::ErrorSpan &e)
 		{
 			std::cout << e.what() << std::endl;
 		}
@@ -78,7 +78,7 @@ std::cout << "----------------- Tst  2--------------" << std::endl;
 				sp.addNumber(4);
 				sp.addNumber(5);
 		}
-		catch( Span::ErrorSpan e)
+		catch( Span::ErrorSpan &e)
 		{
 			std::cout << e.what() << std::endl;
 		}

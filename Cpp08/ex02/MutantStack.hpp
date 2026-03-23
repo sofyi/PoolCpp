@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: slamhaou <slamhaou>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 20:18:52 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/03/18 23:35:13 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/03/20 02:58:10 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,12 @@ class  MutantStack : public std::stack<Typ>
 	//____________MemberFunction__________________
 	
 	typedef typename std::stack<Typ>::container_type::iterator iterator;
+	typedef typename std::stack<Typ>::container_type::const_iterator const_iterator;
+	
 	iterator begin();
 	iterator  end();
+	const_iterator  begin() const;
+	const_iterator  end() const;
 };
+
 #include "MutantStack.tpp"

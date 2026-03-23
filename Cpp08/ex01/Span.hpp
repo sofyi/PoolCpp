@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 19:19:58 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/03/17 20:06:06 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/03/23 15:11:19 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ class Span
 	};
 	//____________--MemberFunction--_______
 	void addNumber(long n) ;
-	long shortestSpan();
-	long longestSpan();
+	size_t shortestSpan();
+	size_t longestSpan();
 	template <typename T>
 	void SmartAdd(T ItBegin,  T ItEnd)//ftakre al error bta3 & m3 al refurance
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slamhaou <slamhaou>                        +#+  +:+       +#+        */
+/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 13:55:01 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/03/13 04:15:18 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:10:15 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@
 #include <deque>
 #include <vector>
 #include <iostream>
+#include <stdexcept>
 #include <algorithm>
 
-
-
 template <typename T>
-long easyfind(T &Array, int Num);
+typename T::iterator easyfind(T &Array, int Num);
 
 #include "easyfind.tpp"
 #endif

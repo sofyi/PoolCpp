@@ -1,4 +1,4 @@
-NAME = Span
+NAME = Myspan
 SRC =  main.cpp Span.cpp
 OBJ = $(SRC:.cpp=.o)
 

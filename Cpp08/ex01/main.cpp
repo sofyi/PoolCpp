@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slamhaou <slamhaou>                        +#+  +:+       +#+        */
+/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 19:17:40 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/03/20 03:08:43 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:37:31 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main()
 {
 	Span sp = Span(5);
 		
-	std::cout << "---------------- Tst 1---------------" << std::endl; 
+	std::cout << "---------------- Tst 1 ---------------" << std::endl; 
 	sp.addNumber(6);
 	sp.addNumber(3);
 	sp.addNumber(17);
@@ -84,5 +84,5 @@ std::cout << "----------------- Tst  2--------------" << std::endl;
 		}
 	}
 	
-return 0;
+	return 0;
 }

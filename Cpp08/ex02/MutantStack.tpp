@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.tpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slamhaou <slamhaou>                        +#+  +:+       +#+        */
+/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 20:18:45 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/03/20 02:58:38 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/03/26 02:41:42 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 
 //___________OrthoDox_____________
+
 template <typename Typ>
 MutantStack<Typ>::MutantStack(){}
 
@@ -26,32 +27,42 @@ MutantStack<Typ>::MutantStack(const MutantStack<Typ> &obj):std::stack<Typ>(obj){
 template <typename Typ>
 MutantStack<Typ>& MutantStack<Typ>::operator=(const MutantStack &obj)
 {
-	*this = obj; 	
+	if (this != &obj)
+		std::stack<Typ>::operator=(obj);
+	return *this;
 }
 
 //________________--MemberFunction--_________________
 
 
 template <typename Typ>
-typename std::stack<Typ>::container_type::iterator  MutantStack<Typ>::begin()
+typename MutantStack<Typ>::iterator  MutantStack<Typ>::begin()
 {
+	if (std::stack<Typ>::c.size() == 0)
+		throw std::out_of_range("empty MutantStack");
 	 return this->c.begin();
 }
 
 template <typename Typ>
-typename std::stack<Typ>::container_type::iterator  MutantStack<Typ>::end()
+typename MutantStack<Typ>::iterator  MutantStack<Typ>::end()
 {
+	if (std::stack<Typ>::c.size() == 0)
+		throw std::out_of_range("empty MutantStack");
 	return this->c.end();
 }
 
 template <typename Typ>
-typename std::stack<Typ>::container_type::const_iterator MutantStack<Typ>::begin() const
+typename MutantStack<Typ>::const_iterator MutantStack<Typ>::begin() const
 {
+	if (std::stack<Typ>::c.size() == 0)
+		throw std::out_of_range("empty MutantStack");
 	return this->c.begin();
 }
 
 template <typename Typ>
-typename std::stack<Typ>::container_type::const_iterator MutantStack<Typ>::end() const // 3lash ile dert ger const_iterator mquqbelsh
+typename MutantStack<Typ>::const_iterator MutantStack<Typ>::end() const
 {
+	if (std::stack<Typ>::c.size() == 0)
+		throw std::out_of_range("empty MutantStack");
 	return this->c.end();
 }

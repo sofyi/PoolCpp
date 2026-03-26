@@ -6,35 +6,35 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 19:19:55 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/03/23 18:39:27 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/03/26 03:21:05 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
-#include <limits> 
 
 Span::~Span() {}
+Span::Span(): N(0), VArr() {}
 Span::Span(unsigned int N):N(N) 
 {
-    if (N == 0)
+    if (N < 2)
         throw ErrorSpan();
 }
-Span::Span(): N(0), VArr(0) {}
 Span::Span (const Span &obj)
 {
     N = obj.N;
     VArr = obj.VArr;
 }
 
-Span& Span::operator=(const Span obj)
+Span& Span::operator=(const Span &obj)
 {
     if (this != &obj)
     {
         N = obj.N;
-        VArr = obj.VArr;    
+        VArr = obj.VArr;
     }
     return *this;
 }
+
 const char* Span::ErrorSpan:: what() const throw()
 {
     return "Error Span";
@@ -44,27 +44,29 @@ const char* Span::ErrorSpan:: what() const throw()
 
 
 
-void Span::addNumber(long n)
+void Span::addNumber(int n)
 {
     if (VArr.size() == N)
         throw ErrorSpan();
     VArr.push_back(n);
 }
 
-size_t Span::shortestSpan()
+long Span::shortestSpan()const 
 {
-    size_t shorts;
-    size_t res;
-    std::vector<long>::iterator it;
+    long shorts;
+    long res;
+    std::vector<int>::const_iterator it;
+    std::vector<int> VArrSort;
 
-    if (N == 1)
+    if (VArr.size() < 2)
         throw ErrorSpan();
-   std::sort(VArr.begin(), VArr.end());
-   it  = VArr.begin();
-   shorts = std::numeric_limits<size_t>::max();
-   while (it != VArr.end() - 1)
+    VArrSort = VArr;
+   std::sort(VArrSort.begin(), VArrSort.end());
+   it  = VArrSort.begin();
+   shorts = std::numeric_limits<long>::max();
+   while (it != VArrSort.end() - 1)
    {
-        res = abs( *it - *(it + 1));
+        res = static_cast<long>(*(it + 1)) - static_cast<long>(*it);
         if (res < shorts)
             shorts = res;
         it++;
@@ -72,10 +74,9 @@ size_t Span::shortestSpan()
     return shorts;
 }
 
-size_t Span::longestSpan()
+long Span::longestSpan()const 
 {
-    if (N == 1)
+    if (VArr.size() < 2)
           throw ErrorSpan();
-    return *std::max_element(VArr.begin(), VArr.end()) - *std::min_element(VArr.begin(), VArr.end());
-  
+    return static_cast<long>(*std::max_element(VArr.begin(), VArr.end())) - static_cast<long>(*std::min_element(VArr.begin(), VArr.end()));
 }

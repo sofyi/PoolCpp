@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 19:19:58 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/03/23 15:11:19 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/03/26 01:27:18 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 #include <iostream>
 #include <vector>
-#include <numeric>
+#include <limits> 
 #include <algorithm>
 class Span
 {
 	private:
-		unsigned N;
-		std::vector<long> VArr;
+		unsigned int N;
+		std::vector<int> VArr;
 	public:
 	//__________--OrthoDox--_________
 	Span();
 	~Span();
 	Span(unsigned int N);
 	Span (const Span &obj);
-	Span & operator=(const Span obj);
+	Span& operator=(const Span &obj);
 	
 	//____________inerClass______________
 
@@ -37,13 +37,14 @@ class Span
 			const char* what() const throw();
 	};
 	//____________--MemberFunction--_______
-	void addNumber(long n) ;
-	size_t shortestSpan();
-	size_t longestSpan();
+	
+	void addNumber(int n) ;
+	long shortestSpan()const;
+	long longestSpan()const;
 	template <typename T>
-	void SmartAdd(T ItBegin,  T ItEnd)//ftakre al error bta3 & m3 al refurance
+	void SmartAdd(const T& ItBegin,  const T& ItEnd)
 	{
-		if (std::distance(ItBegin, ItEnd) > N)
+		if (VArr.size() + std::distance(ItBegin, ItEnd) > N || ItBegin == ItEnd )
 			throw ErrorSpan(); 	
 		VArr.insert(VArr.begin(), ItBegin, ItEnd);
 	}

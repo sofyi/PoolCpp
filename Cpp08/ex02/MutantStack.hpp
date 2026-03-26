@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slamhaou <slamhaou>                        +#+  +:+       +#+        */
+/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 20:18:52 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/03/20 02:58:10 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/03/26 02:17:08 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <stack>
 #include <iostream>
-
+#include <stdexcept>
 template <typename Typ>
 class  MutantStack : public std::stack<Typ>
 {

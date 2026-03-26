@@ -7,7 +7,7 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	c++ $(OBJ) -o $(NAME)
 
-%.o: %.cpp easyfind.hpp 	easyfind.tpp
+%.o: %.cpp easyfind.hpp  easyfind.tpp
 	c++ -c -Wall -Wextra -Werror -std=c++98 $< -o $@
 
 clean :

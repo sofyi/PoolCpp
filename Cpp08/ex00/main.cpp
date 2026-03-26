@@ -6,10 +6,14 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 13:55:05 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/03/23 18:09:23 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/03/24 20:39:47 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <list>
+#include <deque>
+#include <vector>
+#include <iostream>
 #include "easyfind.hpp"
 
 int main()
@@ -25,10 +29,10 @@ int main()
 
 	try
 	{
-		Vit = easyfind(IntVector, -5);
+		Vit = easyfind(IntVector, 5);
 		std::cout << "Vector find = "  << *Vit << std::endl;
 		IntVector.erase(Vit);
-		std::cout << "Vector find = " << *(easyfind(IntVector, -5)) << std::endl;
+		std::cout << "Vector find = " << *(easyfind(IntVector, 5)) << std::endl;
 	}
 	catch(std::invalid_argument &e)
 	{

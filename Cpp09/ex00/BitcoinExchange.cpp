@@ -6,13 +6,14 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 01:50:39 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/04/02 10:49:15 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/04/03 21:50:12 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
 #include <sstream>
+#include <ctime>
 //_________________________________________--OrthoDox--_________________________
 
 BitcoinExchange::~BitcoinExchange(){};
@@ -82,10 +83,54 @@ void	BitcoinExchange::ReadData()
 	// }
 }
 
+int	validDate(std::string date)
+{
+	char sep;
+	int y,m,d;
+	std::stringstream streamstr;
+
+	streamstr << date;
+	streamstr >> y >> sep >> m >> sep >> d;
+	if (y > 2026 || y < 2009)
+		return BadYear;
+	if (m < 1 || m > 12)
+		return BadMonth;
+	if (d < 1 || d > 31)
+		return BadDay;
+	switch (m)
+	{
+		case 2:
+			if (y % 4 != 0 && d == 29)
+				return BadYear;
+		case 1,3,
+			
+	}
+	
+}
+
+int	ParsDate(std::string &date)
+{
+	std::stringstream stremString;
+	int i;
+
+	i = 0;
+	if (std::count(date.begin(), date.end(), '-') != 2)
+		return BadDate;
+	if (*(date.end() - 1) == ' ' && (date.size() == 11))
+	{
+		date.erase(date.end() - 1);
+		if (date.find_first_not_of("1234567890-") != std::string::npos || date[4] != '-' || date[7] != '-')
+			return BadDate;
+		validDate(date);
+		return 1;
+	}
+	return BadDate;
+}
 void	BitcoinExchange::RedInputFile()
 {
 	std::string key;
 	std::string val;
+
 	while (true)
 	{
 		std::getline(InputF, key);
@@ -101,11 +146,13 @@ void	BitcoinExchange::RedInputFile()
 		while (!InputF.eof())
 		{
 		 	std::getline(InputF, key, '|');
-			if (!DatPars(key))
+			if (!ParsDate(key))
 				throw BadFile();
-			std::getline(InputF, key, '|')
-			if (!ValuePars(val))
-				throw BadFile();
+			std::cout << "string {" << key << "}"<< std::endl;
+			break;
+			std::getline(InputF, key, '|');
+			// if (!ValuePars(val))
+			// 	throw BadFile();
 		}
 	}
 	else

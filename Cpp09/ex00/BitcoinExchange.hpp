@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 06:12:14 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/03/31 11:31:04 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/04/03 21:22:41 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,21 @@
 #include <string>
 #include <map>
 #include <stdexcept>
+#include <algorithm>
+#define BadDate -1
+#define BadYear -2
+#define BadMonth -3
+#define BadDay -4
 
 class BitcoinExchange
 {
 	private:
-		std::map<std::string , double> Data;
-		std::string InputName;
-		std::ifstream InputF;
-		std::ifstream DataF;
-	public:
 		BitcoinExchange();
+		std::ifstream DataF;
+		std::ifstream InputF;
+		std::string InputName;
+		std::map<std::string , double> Data;
+	public:
 		~BitcoinExchange();
 		BitcoinExchange(std::string FileInut);
 		BitcoinExchange(const BitcoinExchange &obj);

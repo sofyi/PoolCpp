@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: slamhaou <slamhaou>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 06:12:14 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/04/03 21:22:41 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/04/07 22:03:39 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,17 @@
 #include <map>
 #include <stdexcept>
 #include <algorithm>
-#define BadDate -1
-#define BadYear -2
-#define BadMonth -3
-#define BadDay -4
+#include <sstream>
+
+#define Success 0
+#define  faill -1
+#define BadDate -2
 
 class BitcoinExchange
 {
 	private:
 		BitcoinExchange();
+		double Exchange(std::string &val, std::string &key);
 		std::ifstream DataF;
 		std::ifstream InputF;
 		std::string InputName;

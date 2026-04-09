@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: slamhaou <slamhaou>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 11:41:35 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/04/08 18:56:10 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/04/09 11:17:23 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(int ac, char **av)
     RPN Math;
     try
     {
-        Math.calculate(av[1]);
+      std::cout <<  Math.calculate(av[1]) << std::endl;
     }
     catch(const std::exception& e)
     {

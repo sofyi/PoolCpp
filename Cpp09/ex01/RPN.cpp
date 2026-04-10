@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slamhaou <slamhaou>                        +#+  +:+       +#+        */
+/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 11:41:32 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/04/09 13:10:49 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/04/09 13:20:25 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int RPN::calculate(std::string Math)
         strem >> sep;
         if (sep.empty())
             break;
-        if (sep.size() != 1 && sep[0] != '-' && sep[0] != '+')
+        if (sep.size() != 1 && sep[0] != '-' && sep[0] != '+')//3awed test lhado -1 +1 
             throw std::out_of_range("Error : error in syntax operator {* ,- ,+, /} numbers < 10");
         if ((sep.size() == 1 && isdigit(sep[0])) || (sep.size() == 2 && isdigit(sep[1])))
         {

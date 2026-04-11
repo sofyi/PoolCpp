@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 11:41:28 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/04/09 11:38:02 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/04/10 22:23:13 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,15 @@ class RPN
     int res;
    void  operation(char operat);
     public:
+    //_____________________-OrthoDOx-______________
+    
     RPN();
     // ~RNP();
     // RNP(const RNP& obj);
     // RNP& operator=(const RNP& obj);
+    
+    //______________________MemberFunctio____________
+    
     int calculate(std::string Math);
   
 };

@@ -45,16 +45,16 @@ void    PmergeMe::AddNumbers(char **av, int size)
             throw std::out_of_range("oout");
         if (streem.fail())
             break;
-        VectorPars.push_back(Number);
+        Vector.push_back(Number);
     }
-      tmV = VectorPars;
+      tmV = Vector;
     std::sort(tmV.begin(), tmV.end());
     for(size_t i = 0; i < tmV.size() - 1; i++)
         if (tmV[i] == tmV[i+1])
             throw std::out_of_range("double NUmbersss");
 }
 
-int     PmergeMe::MeargInsetion(char **av, int ac)
+int     PmergeMe::GetInput(char **av, int ac)
 {
     try
     {
@@ -66,4 +66,41 @@ int     PmergeMe::MeargInsetion(char **av, int ac)
         return 1;
     }
     return 0;
+}
+
+void PmergeMe::printVector()
+{
+    for (size_t i = 0; i < Vector.size(); i++)
+        std::cout << Vector[i] << " ";
+}
+
+void PmergeMe::SwapBlocks(size_t left, size_t rigth, size_t gropSize)
+{
+    if(Vector[left + gropSize -1] > Vector[rigth + gropSize - 1])
+    {
+        for(size_t i = 0; i < gropSize; i++ )
+        {
+            std::swap(Vector[left + i], Vector[rigth + i]);
+        }
+    }
+}
+void   PmergeMe::VectorRecursivePairSort(size_t gropSize)
+{
+    if (Vector.size() / gropSize < 2)
+        return;
+    for(size_t left = 0; left + (gropSize * 2) <= Vector.size();)
+    {
+        size_t rigth = left + gropSize;
+        SwapBlocks(left, rigth, gropSize);
+        left+= gropSize * 2;
+        printVector();
+        std::cout << "this is grop size" << gropSize <<std::endl;
+    }
+    VectorRecursivePairSort(gropSize *2);
+    return;
+}
+void    PmergeMe::Sort()
+{   
+    VectorRecursivePairSort(1);
+
 }

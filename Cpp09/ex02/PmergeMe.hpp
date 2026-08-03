@@ -21,13 +21,18 @@
 class PmergeMe
 {
     private:
-        std::vector<int> VectorPars;
+        std::vector<int> Vector;
+
+        void    printVector();
+        void    VectorRecursivePairSort(size_t gopSize);
+        void    SwapBlocks(size_t left, size_t rigth, size_t gropSize);
     public:
-    //------------------------OrthoDox---------------------
+    //------------------------OrthoDox---------------------§§
     
     
 
     //------------------------MeMberFunction----------------
         void    AddNumbers(char **av, int ac);
-        int     MeargInsetion(char **av, int ac);
+        int     GetInput(char **av, int ac);
+        void    Sort();
 };

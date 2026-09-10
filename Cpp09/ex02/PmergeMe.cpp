@@ -72,6 +72,7 @@ void PmergeMe::printVector()
 {
     for (size_t i = 0; i < Vector.size(); i++)
         std::cout << Vector[i] << " ";
+    std::cout << std::endl;
 }
 
 void PmergeMe::SwapBlocks(size_t left, size_t rigth, size_t gropSize)
@@ -84,6 +85,125 @@ void PmergeMe::SwapBlocks(size_t left, size_t rigth, size_t gropSize)
         }
     }
 }
+
+//     max = PendSiz / gropSize;
+//     if (max == 0)
+//         max = 1;
+//    while ( JcopNumber[JcopNumber.size() - 1] < max)
+//         JcopNumber.push_back( JcopNumber[JcopNumber.size() - 1] + (2 * (JcopNumber[JcopNumber.size() - 2])));
+//     return JcopNumber;
+// }
+std::vector<int>::iterator PmergeMe::BlockLowerBound(std::vector<int> &main, int value, size_t gropSiz)
+{
+    size_t left = 0;
+    size_t right = main.size() / gropSiz;
+
+    while (left < right)
+    {
+        size_t mid = left + (right - left) / 2;
+        
+        size_t lastIndex = (mid + 1) * gropSiz - 1;
+        
+        if (main[lastIndex] < value)
+        left = mid + 1;
+        else
+        right = mid;
+    }
+   if (main.begin() + (left * gropSiz) != main.end())
+    std::cout << value << " grop size " << gropSiz << " pos "  << *(main.begin() + (left * gropSiz))<< std::endl;
+
+    return main.begin() + (left * gropSiz);
+}
+std::vector<size_t> GetJacopstallNumber(size_t gropSize, size_t PendSiz)
+{
+    size_t max;
+    std::vector<size_t> JcopNumber;
+
+    JcopNumber.push_back(0);
+    JcopNumber.push_back(1);
+    JcopNumber.push_back(3);
+    max = (PendSiz / gropSize); // تعديل الحد الأقصى لتغطية آخر بلوك
+    if (max == 0)
+        max = 1;
+    while (JcopNumber[JcopNumber.size() - 1] <= max)
+        JcopNumber.push_back(JcopNumber[JcopNumber.size() - 1] + (2 * (JcopNumber[JcopNumber.size() - 2])));
+    return JcopNumber;
+}
+
+void PmergeMe::InsertMinPend(std::vector<int> &main, std::vector<int> &pend, std::vector<size_t> &JcopNumber, size_t gropSiz)
+{
+    size_t FirstJcop;
+    size_t SecondJcop;
+    int BlockStart = 0;
+    int Blockend = 0;
+    size_t AlonBloks;
+    size_t totalBlocks;
+    size_t HiBblocks;
+    std::vector<int>::iterator ItBound;
+
+    size_t i = 2;
+    FirstJcop = 1;
+    totalBlocks = pend.size() / gropSiz;
+    HiBblocks = totalBlocks + 1;
+    while (FirstJcop < HiBblocks && i < JcopNumber.size())
+    {
+        SecondJcop = JcopNumber[i];
+        if (SecondJcop > HiBblocks)
+            SecondJcop = HiBblocks;
+
+        for (size_t j = SecondJcop; j > FirstJcop; j--)
+        {
+            BlockStart =  (j - 2) * gropSiz;
+            Blockend = BlockStart + gropSiz;
+            ItBound = BlockLowerBound(main,pend[Blockend - 1], gropSiz);
+            main.insert(ItBound, pend.begin() + BlockStart, pend.begin() + Blockend);
+        }
+        FirstJcop = SecondJcop;
+        i++;
+    }
+    AlonBloks = pend.size() % gropSiz;
+    if (AlonBloks > 0)
+    {
+        size_t leftStart = totalBlocks * gropSiz;
+         main.insert(main.end(), pend.begin() + leftStart, pend.end());
+    }
+    return;
+}
+void    PmergeMe::BuildMainAndPend(size_t gropSize)
+{
+    std::vector<int> main;
+    std::vector<int> pend;
+
+    size_t i = 0;
+    while (i < gropSize * 2)
+    {
+        main.push_back(Vector[i]);
+        i++;
+    }
+    while (i + (gropSize * 2) <= Vector.size())
+    {
+        size_t count = 0;
+        while (count < gropSize)
+        {
+            pend.push_back(Vector[i++]);
+            count++;
+        }
+        count = 0;
+        while (count < gropSize)
+        {
+            main.push_back(Vector[i++]);
+            count++;
+        }
+    }
+    while (i < Vector.size())
+        pend.push_back(Vector[i++]);
+    std::__1::vector<size_t> jaco = GetJacopstallNumber(gropSize, pend.size());
+    InsertMinPend(main, pend, jaco, gropSize);
+    Vector = main;
+    main.clear();
+    return;
+
+}
 void   PmergeMe::VectorRecursivePairSort(size_t gropSize)
 {
     if (Vector.size() / gropSize < 2)
@@ -93,14 +213,16 @@ void   PmergeMe::VectorRecursivePairSort(size_t gropSize)
         size_t rigth = left + gropSize;
         SwapBlocks(left, rigth, gropSize);
         left+= gropSize * 2;
-        printVector();
-        std::cout << "this is grop size" << gropSize <<std::endl;
     }
     VectorRecursivePairSort(gropSize *2);
+
+    // ===== UNWINDING =====
+    BuildMainAndPend(gropSize);
     return;
 }
 void    PmergeMe::Sort()
 {   
-    VectorRecursivePairSort(1);
-
+   if(!std::is_sorted(Vector.begin(), Vector.end()))
+        VectorRecursivePairSort(1);
+    printVector();
 }

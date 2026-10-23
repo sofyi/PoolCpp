@@ -17,7 +17,7 @@ int main(int ac, char **av)
     PmergeMe Sort;
     
     if (ac < 2)
-        return std::cout << "Error: give a list of numbers to sort "<< std::endl, 1;
+        return std::cerr << "Error: give a list of numbers to sort "<< std::endl, 1;
     if (Sort.GetInput(av, ac))
         return 1;
     Sort.Sort();

@@ -20,15 +20,14 @@ class RPN
 {
   private:
     std::stack<int> IntStack;
-    int res;
-   void  operation(char operat);
+    void  operation(char operat);
     public:
     //_____________________-OrthoDOx-______________
     
     RPN();
-    // ~RNP();
-    // RNP(const RNP& obj);
-    // RNP& operator=(const RNP& obj);
+    ~RPN();
+    RPN(const RPN& obj);
+    RPN& operator=(const RPN& obj);
     
     //______________________MemberFunctio____________
     

@@ -12,13 +12,29 @@
 
 #include "RPN.hpp"
 
+//_________________________________________--OrthoDox--_________________________
+
 RPN::RPN(){}
+RPN::~RPN(){}
+RPN::RPN(const RPN& obj)
+{
+    *this = obj;
+}
+RPN& RPN::operator=(const RPN& obj)
+{
+    if (this != &obj)
+        IntStack = obj.IntStack;
+    return *this;
+}
+
+//________________________________---MemberFunction--_______________________________
 
 void RPN::operation(char operat)
 {
     int n1;
     int n2;
-    
+    int res;
+
     if (IntStack.size() > 1)
     {
         n1 = IntStack.top();
@@ -37,8 +53,8 @@ void RPN::operation(char operat)
                res = n2 * n1;
                 break;
             case '/':
-            if (n1 == 0)
-                throw std::out_of_range("error : its forbedin /0");
+                if (n1 == 0)
+                    throw std::out_of_range("error : its forbedin / 0");
                res = n2 / n1;
                 break;
         }
@@ -65,7 +81,7 @@ int RPN::calculate(std::string Math)
         strem >> sep;
         if (sep.empty())
             break;
-        if (sep.size() != 1 && sep[0] != '-' && sep[0] != '+')//3awed test lhado -1 +1 
+        if (sep.size() != 1 && sep[0] != '-' && sep[0] != '+')
             throw std::out_of_range("Error : error in syntax operator {* ,- ,+, /} numbers < 10");
         if ((sep.size() == 1 && isdigit(sep[0])) || (sep.size() == 2 && isdigit(sep[1])))
         {

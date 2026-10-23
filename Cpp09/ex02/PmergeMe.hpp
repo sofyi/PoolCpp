@@ -18,31 +18,40 @@
 #include <vector>
 #include <algorithm>
 #include <limits>
-
-typedef struct sort
-{
-    int insert;
-    int IndexPirs;
-}s_t;
+#include <ctime>
+#include <iomanip>
 
 class PmergeMe
 {
     private:
         std::vector<int> Vector;
+        std::deque<int> Deque;
 
-        void    printVector();
+        //deque
+        void    DequeBuildMainAndPend(size_t gropSize);
+        void    DequeRecursivePairSort(size_t gropSize);
+        void    SwapBlocksDeq(size_t left, size_t rigth, size_t gropSize);
+        void    DequeInsertMinPend(std::deque<int> &main, std::deque<int> &pend, std::deque<size_t> &JcopNumber, size_t gropSiz);
+        std::deque<int>::iterator   DequeBlockLowerBound(std::deque<int> &main, int value, size_t gropSiz);
+        //Vector
+        void    printVector(double exactTime, char type);
         void    VectorRecursivePairSort(size_t gopSize);
-        void    SwapBlocks(size_t left, size_t rigth, size_t gropSize);
-        void InsertMinPend(std::vector<int> &main, std::vector<int> &pend, std::vector<size_t> &JcopNumber, size_t gropSiz);
-        std::vector<int>::iterator BlockLowerBound(std::vector<int> &main, int value, size_t gropSiz);
+        void    SwapBlocksVector(size_t left, size_t rigth, size_t gropSize);
+        void    InsertMinPend(std::vector<int> &main, std::vector<int> &pend, std::vector<size_t> &JcopNumber, size_t gropSiz);
+        std::vector<int>::iterator VecBlockLowerBound(std::vector<int> &main, int value, size_t gropSiz);
+        void    VectorBuildMainAndPend(size_t gropSize);
+
+        //paars
+        void    AddNumbers(char **av, int ac);
     public:
     //------------------------OrthoDox---------------------§§
-    
-    
 
-    //------------------------MeMberFunction----------------
-        void    AddNumbers(char **av, int ac);
-        int     GetInput(char **av, int ac);
+        PmergeMe();
+        ~PmergeMe();
+        PmergeMe(PmergeMe const &obj);
+        PmergeMe &operator=(PmergeMe const &obj);
+    //------------------------MeMberFunction----------------§§
+
         void    Sort();
-        void    BuildMainAndPend(size_t gropSize);
+        int     GetInput(char **av, int ac);
 };

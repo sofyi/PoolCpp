@@ -16,16 +16,18 @@
 
 BitcoinExchange::~BitcoinExchange(){};
 BitcoinExchange::BitcoinExchange():DataF("data.csv"){}
-BitcoinExchange::BitcoinExchange(std::string FileInut): DataF("data.csv", std::ios::ate) , InputF(FileInut.c_str(), std::ios::ate)//at heya at end 
+BitcoinExchange::BitcoinExchange(std::string FileInut): DataF("data.csv") , InputF(FileInut.c_str())
 {
-	if (!DataF.is_open() || !DataF.tellg())
-		throw BadFile();
-	if (!InputF.is_open() || !InputF.tellg())
-		throw BadFile();
+	if (!DataF.is_open() || !InputF.is_open())
+		throw std::runtime_error("Error: could not open file.");
+
+	if (InputF.peek() == std::ifstream::traits_type::eof() || DataF.peek() == std::ifstream::traits_type::eof())
+		throw std::runtime_error("Error: empty file.");
 	DataF.seekg(0);
 	InputF.seekg(0);
 	InputName = FileInut;
 }
+
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &obj)
 {
 	Data  = obj.Data;	
@@ -37,15 +39,16 @@ BitcoinExchange & BitcoinExchange::operator=(const BitcoinExchange &obj)
 {
 	if (this != &obj)
 	{
+		InputName = obj.InputName;
 		DataF.close();
 		DataF.open("data.csv");
 		InputF.close();
 		InputF.open(InputName.c_str());
 		Data  = obj.Data;	
-		InputName = obj.InputName;
 	}
 	return *this;
 }
+
 //_______________________________---InnerClass--_________________________________
 
 const char* BitcoinExchange::BadFile::what() const throw()
@@ -80,8 +83,6 @@ int	validDate(std::string date)
 
 	streamstr << date;
 	streamstr >> y >> sep >> m >> sep >> d;
-	if (y > 2026 || y < 2009)
-		return faill;
 	if (m < 1 || m > 12)
 		return faill;
 	if (d < 1 || d > 31)
@@ -158,7 +159,10 @@ double BitcoinExchange::Exchange(std::string &val, std::string &key)
 	std::map<std::string, double>::iterator it;
 
 	it = Data.lower_bound(key);
-	it--;
+	if (it == Data.end() || (it->first != key && it != Data.begin()))
+		it--;
+	if (it->first != key && it == Data.begin())
+		throw std::runtime_error("Error: no data available for the given date.");
 	return it->second * v;
 }
 
@@ -168,18 +172,16 @@ void	BitcoinExchange::RedInputFile()
 	std::string val;
 	std::string msg;
 
-	while (true)
+	while (std::getline(InputF, key))
 	{
-		std::getline(InputF, key);
 		if ( key == "date | value")
 			break;
-		if (InputF.eof())
-			throw BadFile();
-		std::cout << "bad input must be {date | value}" << std::endl; continue;
+		std::cout << "bad input must be {date | value}" << std::endl; 
 	}
-	while (!InputF.eof())
-	{
-		std::getline(InputF, key);
+	if (InputF.eof())
+		throw BadFile();
+	while (std::getline(InputF, key))
+	{	
 		if (std::count(key.begin(), key.end(), '|') != 1)
 		{
 			std::cout << "error syntax -> " << key << std::endl; 
@@ -189,7 +191,7 @@ void	BitcoinExchange::RedInputFile()
 		key = key.substr(0, key.find("|"));
 		if (Parskey(key) != Success)
 		{
-			std::cout << "Error: bad input => " << key << std::endl;
+			std::cout << "Error: bad Date => {" << key << "}" << std::endl;
 			 continue;
 		}
 		msg = ParsValue(val);

@@ -16,8 +16,7 @@
 int main(int ac, char **av)
 {
     if (ac != 2)
-        return std::cout << "Error input"<< std::endl, 1;
-
+        return std::cerr << "Error input"<< std::endl, 1;
     try
     {
         BitcoinExchange ex(av[1]);

@@ -28,11 +28,11 @@ class BitcoinExchange
 {
 	private:
 		BitcoinExchange();
-		double Exchange(std::string &val, std::string &key);
 		std::ifstream DataF;
 		std::ifstream InputF;
 		std::string InputName;
 		std::map<std::string , double> Data;
+		double Exchange(std::string &val, std::string &key);
 	public:
 		~BitcoinExchange();
 		BitcoinExchange(std::string FileInut);
@@ -45,7 +45,7 @@ class BitcoinExchange
 				const char* what() const throw();
 		};
 	//__________________MemberFunction__________________
+	
 	void	ReadData();
 	void	RedInputFile();
-	// void	ExchangeFile();
 };

@@ -8,7 +8,7 @@ $(NAME) : $(OBJ)
 	c++ $(OBJ) -o $(NAME)
 
 %.o: %.cpp PmergeMe.hpp 
-	c++ -c -std=c++98 $< -o $@
+	c++ -c -std=c++98 -Wall -Wextra -Werror  $< -o $@
 
 clean :
 	rm -f $(OBJ)

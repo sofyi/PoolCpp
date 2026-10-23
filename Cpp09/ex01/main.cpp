@@ -15,12 +15,12 @@
 int main(int ac, char **av)
 {
     if (ac != 2)
-        return std::cout << "Error syntax it must be program name and one argiment" << std::endl, 1;
+        return std::cerr << "Error syntax it must be program name and one argiment" << std::endl, 1;
 
     RPN Math;
     try
     {
-      std::cout <<  Math.calculate(av[1]) << std::endl;
+      std::cout << "Result: " << Math.calculate(av[1]) << std::endl;
     }
     catch(const std::exception& e)
     {

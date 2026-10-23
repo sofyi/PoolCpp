@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slamhaou <slamhaou>                        +#+  +:+       +#+        */
+/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 01:51:59 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/04/07 21:28:25 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/10/23 21:27:42 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int main(int ac, char **av)
         return std::cerr << "Error input"<< std::endl, 1;
     try
     {
-        BitcoinExchange ex(av[1]);
+        BitcoinExchange ex;
            ex.ReadData();
-        ex.RedInputFile();
+        ex.RedInputFile(av[1]);
     }
     catch(const std::exception& e)
     {

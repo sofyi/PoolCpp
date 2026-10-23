@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slamhaou <slamhaou>                        +#+  +:+       +#+        */
+/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 01:50:39 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/04/07 22:04:02 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/10/23 21:51:35 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,46 +14,18 @@
 
 //_________________________________________--OrthoDox--_________________________
 
-BitcoinExchange::~BitcoinExchange(){};
-BitcoinExchange::BitcoinExchange():DataF("data.csv"){}
-BitcoinExchange::BitcoinExchange(std::string FileInut): DataF("data.csv") , InputF(FileInut.c_str())
-{
-	if (!DataF.is_open() || !InputF.is_open())
-		throw std::runtime_error("Error: could not open file.");
-
-	if (InputF.peek() == std::ifstream::traits_type::eof() || DataF.peek() == std::ifstream::traits_type::eof())
-		throw std::runtime_error("Error: empty file.");
-	DataF.seekg(0);
-	InputF.seekg(0);
-	InputName = FileInut;
-}
-
+BitcoinExchange::~BitcoinExchange(){}
+BitcoinExchange::BitcoinExchange(){}
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &obj)
 {
-	Data  = obj.Data;	
-	InputName = obj.InputName;
-	InputF.open(InputName.c_str());
+	*this = obj;
 }
 
 BitcoinExchange & BitcoinExchange::operator=(const BitcoinExchange &obj)
 {
 	if (this != &obj)
-	{
-		InputName = obj.InputName;
-		DataF.close();
-		DataF.open("data.csv");
-		InputF.close();
-		InputF.open(InputName.c_str());
-		Data  = obj.Data;	
-	}
+		Data = obj.Data;
 	return *this;
-}
-
-//_______________________________---InnerClass--_________________________________
-
-const char* BitcoinExchange::BadFile::what() const throw()
-{
-	return "BadFile";
 }
 
 //________________________________---MemberFunction--_______________________________
@@ -63,7 +35,14 @@ void	BitcoinExchange::ReadData()
 	std::string key;
 	std::string Value;
 	std::stringstream stremString;
-	
+	std::ifstream DataF("data.csv");
+
+	if (!DataF.is_open())
+		throw std::runtime_error("Error: could not open Database file.");
+	if (DataF.peek() == std::ifstream::traits_type::eof())
+		throw std::runtime_error("Error: empty file.");
+	DataF.seekg(0);
+
 	std::getline(DataF, key);
 	while (std::getline(DataF, key, ','))
 	{
@@ -103,7 +82,6 @@ int	validDate(std::string date)
 	if (d > max)
 		return faill;
 	return Success;
-	
 }
 
 int	Parskey(std::string &date)
@@ -123,27 +101,21 @@ int	Parskey(std::string &date)
 std::string ParsValue(std::string &val)
 {
 	double v;
-	int sin;
 	std::stringstream strm;
-	
-	sin = '+';
+
 	if (val[0] != ' ')
 		return "error syntax value no space after |";
 	val.erase(val.begin());
 	if ((val[0] == '-' || val[0] == '+') && !isalnum(val[1]))
 		return "error syntax value";
-	if (val[0] == '-' || val[0] == '+')
-	{
-		sin = val[0];
+	if (val[0] == '+')
 		val.erase(val.begin());
-	}
-
+	if (val[0] == '-')
+		return " not a positive number";
 	if (val.find(" \t") != val.npos || val.find_first_not_of("1234567890.") != val.npos || std::count(val.begin(), val.end() , '.') > 1)
 		return "error syntax value";
 	strm << val;
 	strm >> v;	
-	if (sin == '-')
-		return " not a positive number";
 	if ( v > 1000)
 		return "too large a number";
 	return "success";
@@ -166,12 +138,19 @@ double BitcoinExchange::Exchange(std::string &val, std::string &key)
 	return it->second * v;
 }
 
-void	BitcoinExchange::RedInputFile()
+void	BitcoinExchange::RedInputFile(const std::string &nameFile)
 {
 	std::string key;
 	std::string val;
 	std::string msg;
+	std::ifstream InputF(nameFile);
 
+	if (!InputF.is_open())
+		throw std::runtime_error("Error: could not open file.");
+	if (InputF.peek() == std::ifstream::traits_type::eof())
+		throw std::runtime_error("Error: empty file.");
+	InputF.seekg(0);
+	
 	while (std::getline(InputF, key))
 	{
 		if ( key == "date | value")
@@ -179,7 +158,8 @@ void	BitcoinExchange::RedInputFile()
 		std::cout << "bad input must be {date | value}" << std::endl; 
 	}
 	if (InputF.eof())
-		throw BadFile();
+		throw std::runtime_error("Error: failed to read header from file.");
+	
 	while (std::getline(InputF, key))
 	{	
 		if (std::count(key.begin(), key.end(), '|') != 1)

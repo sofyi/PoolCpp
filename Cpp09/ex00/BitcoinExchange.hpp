@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slamhaou <slamhaou>                        +#+  +:+       +#+        */
+/*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 06:12:14 by slamhaou          #+#    #+#             */
-/*   Updated: 2026/04/07 22:03:39 by slamhaou         ###   ########.fr       */
+/*   Updated: 2026/10/23 21:31:53 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <stdexcept>
 #include <algorithm>
 #include <sstream>
-
+#include <stdexcept>
 #define Success 0
 #define  faill -1
 #define BadDate -2
@@ -27,25 +27,16 @@
 class BitcoinExchange
 {
 	private:
-		BitcoinExchange();
-		std::ifstream DataF;
-		std::ifstream InputF;
-		std::string InputName;
 		std::map<std::string , double> Data;
 		double Exchange(std::string &val, std::string &key);
 	public:
+		BitcoinExchange();
 		~BitcoinExchange();
-		BitcoinExchange(std::string FileInut);
 		BitcoinExchange(const BitcoinExchange &obj);
 		BitcoinExchange &operator=(const BitcoinExchange &obj);
-	//_____________________--innerClass--______________________
-		class BadFile: public std::exception
-		{
-			public:
-				const char* what() const throw();
-		};
+		
 	//__________________MemberFunction__________________
 	
 	void	ReadData();
-	void	RedInputFile();
+	void	RedInputFile(const std::string &s);
 };

@@ -64,13 +64,11 @@ int	validDate(std::string date)
 	streamstr >> y >> sep >> m >> sep >> d;
 	if (m < 1 || m > 12)
 		return faill;
-	if (d < 1 || d > 31)
-		return faill;
 	max = 31;
 	switch (m)
 	{
 		case 2:
-			if (y % 4 == 0)
+			if ((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0))
 				max = 29;
 			else
 				max = 28;
@@ -79,7 +77,7 @@ int	validDate(std::string date)
 			max = 30;
 			break;	
 	}
-	if (d > max)
+	if (d < 1 || d > max)
 		return faill;
 	return Success;
 }
@@ -134,7 +132,10 @@ double BitcoinExchange::Exchange(std::string &val, std::string &key)
 	if (it == Data.end() || (it->first != key && it != Data.begin()))
 		it--;
 	if (it->first != key && it == Data.begin())
-		throw std::runtime_error("Error: no data available for the given date.");
+	{
+		std::cout << key << " => " << val << " = " << "no data available for the given date." << std::endl;
+		return faill;
+	}
 	return it->second * v;
 }
 
@@ -143,6 +144,7 @@ void	BitcoinExchange::RedInputFile(const std::string &nameFile)
 	std::string key;
 	std::string val;
 	std::string msg;
+	double v;
 	std::ifstream InputF(nameFile);
 
 	if (!InputF.is_open())
@@ -180,6 +182,9 @@ void	BitcoinExchange::RedInputFile(const std::string &nameFile)
 			std::cout << "Error : " << msg << std::endl;
 			continue;
 		}
-		std::cout << key << " => " << val << " = " << Exchange(val, key) << std::endl;	
+		v = Exchange(val, key);
+		if (v == faill)
+			continue;
+		std::cout << key << " => " << val << " = " << v << std::endl;	
 	}
 }

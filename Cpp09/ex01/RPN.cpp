@@ -68,9 +68,7 @@ int RPN::calculate(std::string Math)
 {
     int number;
     std::string sep;
-    std::string::iterator itb;
     std::stringstream strem;
-    std::stringstream changestream;
 
     if (Math.find_first_not_of("0123456789+-*/ ") != Math.npos)
         throw std::out_of_range("Error:: Number only and operator {*, +, -, /}");
@@ -81,13 +79,17 @@ int RPN::calculate(std::string Math)
         strem >> sep;
         if (sep.empty())
             break;
-        if (sep.size() != 1 && sep[0] != '-' && sep[0] != '+')
-            throw std::out_of_range("Error : error in syntax operator {* ,- ,+, /} numbers < 10");
-        if ((sep.size() == 1 && isdigit(sep[0])) || (sep.size() == 2 && isdigit(sep[1])))
+        if (!(sep.size() == 2 && sep[0] == '+' && isdigit(sep[1])) && !(sep.size() == 1 && isdigit(sep[0])) 
+            && !(sep.size() == 1 && (sep[0] == '+' || sep[0] == '-' || sep[0] == '*' || sep[0] == '/')))
+            throw std::out_of_range("Error : error in syntax operator {* ,- ,+, /} numbers < 10 && > 0");
+        if (sep.size() == 1 && isdigit(sep[0]))
         {
-            changestream.clear();
-            changestream << sep;
-            changestream >> number;  
+            number = sep[0] - '0';
+            IntStack.push(number);
+        }
+        else if (sep.size() == 2)
+        {
+            number = sep[1] - '0';
             IntStack.push(number);
         }
         else
